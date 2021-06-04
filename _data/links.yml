@@ -1,0 +1,11 @@
+steam:
+  title: Steam
+  logo: steam-badge.svg
+
+steamea:
+  title: Steam Early Access
+  logo: steam-badge-ea.svg
+
+itch:
+  title: Itch.io
+  logo: itch-badge.svg

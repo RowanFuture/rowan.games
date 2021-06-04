@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+	<head>
+		{% include head.html %}
+		<link rel='stylesheet', href='{{site.static}}css/carousel.css'>
+	</head>
+    <body>
+        {% include title.html %}
+        <div id="game-carousel">
+			{% for game in site.data.games %}
+				<!-- game -->
+				{% include gamecard.html data=game %}
+			{% endfor %}
+		</div>
+        <script src="{{site.static}}js/carousel.js"></script>
+	</body>
+</html>
