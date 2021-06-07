@@ -4,14 +4,34 @@
 		{% include head.html %}
 		<link rel='stylesheet', href='{{site.static}}css/carousel.css'>
 	</head>
-    <body>
-        {% include title.html %}
-        <div id="game-carousel">
-			{% for game in site.data.games %}
-				<!-- game -->
-				{% include gamecard.html data=game %}
-			{% endfor %}
+    <body style="overflow: hidden;">
+		<div id="scroll-container" style="
+			overflow-y: scroll;
+			scroll-snap-type: mandatory;
+			height:100vh;
+			scroll-snap-type: y mandatory;
+		">
+			<div style="height:100vh; overflow:hidden; position: relative; scroll-snap-align: start;">
+				{% include title.html %}
+				<div id="game-carousel">
+					{% for game in site.data.games %}
+						<!-- game -->
+						{% include gamecard.html data=game %}
+					{% endfor %}
+				</div>
+				<script src="{{site.static}}js/carousel.js"></script>
+			</div>
+			<div style="
+				background-color: #292F33;
+				z-index: 11;
+				position: relative;
+				margin: auto;
+				box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+				scroll-snap-align: start;
+				width:max(30vw,600px);
+			">
+				<a class="twitter-timeline" data-width="100%" data-height="100vh" data-theme="dark" href="https://twitter.com/rowanfuture?ref_src=twsrc%5Etfw">Tweets by rowanfuture</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
 		</div>
-        <script src="{{site.static}}js/carousel.js"></script>
 	</body>
 </html>

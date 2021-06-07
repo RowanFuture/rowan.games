@@ -1,5 +1,6 @@
 ---
 layout: game
-permalink: /drifting.cloud/
-data: drifting-cloud
+permalink: /blue.energy/
+data: blue-energy
+title: Drifting Cloud
 ---

@@ -20,6 +20,7 @@ drifting-cloud:
   textcolor: black
   # info:"Play online in drifting cloud with up to 3 friends in 3 challenging gamemodes or chill out in a relaxing singleplayer mode where you can try to get a highscore and unlock new rockets with different special abilities and playstyles.",
   press: false
+  feed: false
 
 # "witchie":{
 #     "name":"Witchie",
@@ -80,5 +81,5 @@ blue-energy:
   textcolor: black
   panelcolor: rgba(255,255,255,.7)
   info: none
-  press: true
-
+  press: false #true
+  feed: false #"https://twitter.com/rowanfuture/timelines/1400863348108021765?ref_src=twsrc%5Etfw"

@@ -21,13 +21,13 @@
 title: ROWAN FUTURE
 email: contact@rowan.games
 description: >- # this means to ignore newlines until "baseurl:"
-  ROWAN FUTURE, THE FUTURE OF GAMING
+  THE FUTURE OF GAMING
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rowan.games" # the base hostname & protocol for your site, e.g. http://example.com
-static: "https://s3.eu-west-2.amazonaws.com/rowan.web-media/"
+static: "https://rowan-web-assets.pages.dev/" #"https://s3.eu-west-2.amazonaws.com/rowan.web-media/"
 twitter_username: rowanfuture
 discord: "https://discord.gg/rf"
-author: ROWANFUTURE
+author:
 
 # seo
 
