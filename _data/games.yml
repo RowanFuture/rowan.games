@@ -67,6 +67,7 @@ blue-energy:
     { type: cover-art, people: [ astro, ], }
   ]
   links: [
+    { type: kickstarter, url: "https://www.kickstarter.com/projects/rowanfuture/blue-energy",},
     { type: steamea, url: "https://store.steampowered.com/app/1477310/Blue_Energy/", },
     { type: itch, url: "https://rowanfuture.itch.io/blue-energy", },
   ]

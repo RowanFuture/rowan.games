@@ -9,3 +9,7 @@ steamea:
 itch:
   title: Itch.io
   logo: itch-badge.svg
+  
+kickstarter:
+  title: Kickstarter
+  logo: ks-badge.svg
