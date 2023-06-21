@@ -1,0 +1,15 @@
+- title: HOME
+  url: /
+  logo: "rowan-small.svg"
+
+#- title: ABOUT
+#  url: /about/
+#  logo: null
+
+- title: Twitter
+  url: https://twitter.com/RowanFuture
+  logo: "twitter-logo.svg"
+
+- title: Discord
+  url: https://discord.com/invite/rf
+  logo: "discord-logo.svg"

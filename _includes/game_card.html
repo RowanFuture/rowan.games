@@ -1,0 +1,28 @@
+<div class="card-container">
+	
+	{% if include.data.card_img != null %}
+		<div class="gamecard" style="background-image: url('{{ site.base_url }}/assets/img/{{ include.data.card_img }}')">
+	{% else %}
+		<div class="gamecard">
+	{% endif %}
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+		<div class="img-center">
+			{% if include.data.card_img != null %}
+				<img src="{{ site.base_url }}/assets/img/{{ include.data.logo_img }}" class="game-logo">
+			{% else %}
+
+				{% assign words = include.data.title | split: ' ' %}
+
+				{% capture titlecase %}
+					{% for word in words %}
+						{{ word | capitalize }}
+					{% endfor %}
+				{% endcapture %}
+
+				<div>{{ titlecase }}</div>
+				
+			{% endif %}
+		</div>
+	</div>
+</div>

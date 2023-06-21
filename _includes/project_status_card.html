@@ -1,0 +1,16 @@
+<div class="development_status 
+	{% case page.development_status %}
+		{% when "cancelled" %}
+			status_red">
+			CANCELLED
+		{% when "on_hold" %}
+			status_yellow">
+			ON HOLD
+		{% when "in_development" %}
+			status_green">
+			IN ACTIVE DEVELOPMENT
+		{% when "complete" %}
+			status_green">
+			COMPLETE
+	{% endcase %}
+</div>

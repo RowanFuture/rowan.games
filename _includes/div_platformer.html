@@ -1,0 +1,179 @@
+<style>
+
+	.player-character {
+		width:10vh;
+		height:10vh;
+		position: absolute;
+		background-color: white;
+		z-index: 100;
+	}
+
+</style>
+
+<script>
+
+	const KEY_NAME = {
+		ARROW_DOWN: "ArrowDown",
+		ARROW_UP: "ArrowUp",
+		ARROW_LEFT: "ArrowLeft",
+		ARROW_RIGHT: "ArrowRight",
+	}
+
+	class Collider {
+		constructor(element){
+			this.element = element;
+		}
+		collision(_other){
+			const div1 = this.element.getBoundingClientRect();
+			const div2 = _other.getBoundingClientRect();
+			return (div1.right > div2.left && 
+					div1.left < div2.right && 
+					div1.bottom > div2.top && 
+					div1.top < div2.bottom)
+		}
+	}
+
+	class InputHandler {
+		constructor() {
+
+			this.keyMap = {};
+
+			window.addEventListener("keydown", (event) => { this.handleInputDown(event); } );
+			window.addEventListener("keyup", (event) => { this.handleInputUp(event); } );
+		}
+		handleInputDown(event){
+			if (event.defaultPrevented) {
+				return;
+			}
+			this.keyMap[event.key] = true;
+		}
+		handleInputUp(event){
+			if (event.defaultPrevented) {
+				return;
+			}
+			this.keyMap[event.key] = false;
+		}
+		checkKey(key_name){
+			let _val = this.keyMap[key_name];
+			return isNaN(_val) ? 0 : _val;
+		}
+	}
+	
+	class Player {
+		constructor(input_handler,colliders){
+
+			this.vsp = 0;
+
+			this.input = input_handler;
+			this.collision_array = colliders;
+
+			this.element = document.createElement("div");
+			document.body.appendChild(this.element);
+
+			this.element.classList.add("player-character");
+
+			this.setPosition(window.innerWidth/2, 0);//window.innerHeight/2
+		}
+		setPosition(_nx, _ny){
+			this.x = _nx;
+			this.y = _ny;
+			this.element.style.left = String(this.x) + "px";
+			this.element.style.top = String(this.y) + "px";
+		}
+		checkForCollision(_nx,_ny){
+			let _cx = this.x;
+			let _cy = this.y;
+			this.setPosition(_nx,_ny);
+			let _result = false;
+			for(let i = 0; i < this.collision_array.length; i++){
+				if(this.collision_array[i].collision(this.element)){
+					_result = true;
+					break;
+				}
+			}
+			this.setPosition(_cx,_cy);
+			return _result;
+		}
+		update(){
+
+			const _window_top = window.scrollY;
+			const _screen_width = window.innerWidth;
+			const _screen_height = window.innerHeight + _window_top;
+
+			const _left = this.input.checkKey(KEY_NAME.ARROW_LEFT);
+			const _right = this.input.checkKey(KEY_NAME.ARROW_RIGHT);
+			const _down = this.input.checkKey(KEY_NAME.ARROW_DOWN);
+			const _up = this.input.checkKey(KEY_NAME.ARROW_UP);
+
+			let _move_hor = _right-_left;
+			let _move_ver = _down-_up;
+			
+			const gravity = window.innerHeight*.00015;
+			const move_hor = window.innerHeight*.005;
+
+			let _x = this.x;
+			let _y = this.y;
+
+			let _hsp = _move_hor*move_hor;
+			
+			this.vsp += gravity;
+			this.vsp = Math.min(10,this.vsp);
+			
+			if(!this.checkForCollision(_x+_hsp,_y)){
+				_x += _hsp;
+			} else {
+				while(!this.checkForCollision(_x+Math.sign(_hsp),_y)){
+					_x += Math.sign(_hsp);
+				}
+			}
+
+			if(!this.checkForCollision(_x,_y+ this.vsp)){
+				_y += this.vsp;
+			} else {
+				while(!this.checkForCollision(_x,_y+Math.sign(this.vsp))){
+					_y += Math.sign(this.vsp);
+				}
+				this.vsp = 0;
+			}
+
+			if(_y > _screen_height){
+				_y = _window_top;
+			}
+
+			if(_x < 0){
+				_x = _screen_width;
+			}
+			if(_x > _screen_width){
+				_x = 0;
+			}
+
+			this.setPosition(_x, _y);
+		}
+	};
+
+	var player = null;
+	const colliders = [];
+
+	window.onload=function(){
+		
+		const grid_items = document.getElementsByClassName("grid-item");
+
+		for(let i = 0; i < grid_items.length; i++){
+			colliders.push(new Collider(grid_items[i]));
+		}
+
+		const input = new InputHandler();
+
+		player = new Player(input,colliders);
+
+		function step(){
+
+			player.update();
+
+			window.requestAnimationFrame(step);
+		}
+		
+		window.requestAnimationFrame(step);
+	}
+
+</script>

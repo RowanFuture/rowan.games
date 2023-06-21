@@ -1,0 +1,5 @@
+<div class="grid-container">
+	{% for project in include.data %}
+		<div class="grid-item"><a href="{{ project.url }}">{% include game_card.html data=project %}</a></div>
+	{% endfor %}
+</div>

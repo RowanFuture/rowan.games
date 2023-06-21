@@ -1,0 +1,35 @@
+{% for entry in site.data.navigation %}
+{% capture fullurl %}{{ site.baseurl }}{{ entry.url }}{% endcapture %}
+    {% if fullurl == page.url %}
+        {% assign current_page = fullurl %}
+        {% break %}
+    {% elsif page.url contains fullurl %}
+        {% assign current_page = fullurl %}
+    {% endif %}
+{% endfor %}
+
+<nav>
+    <ul class="nav-bar">
+    {% for entry in site.data.navigation %}
+        {% if entry.url == current_page %}
+            {% assign current = ' class="current"' %}
+        {% else %}
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            {% assign current = null %}
+        {% endif %}
+        <li{{ current }}>
+			{% assign target = entry.url | slice: 0 %}
+			{% if target == 'h' %}
+				{% assign target = 'target="_blank"' %}
+			{% else %}
+				{% assign target = '' %}
+			{% endif %}
+			{% if entry.logo != null %}
+				<a {{target}} href="{{ entry.url }}"><img class="nav-logo" src="{{ site.baseurl }}/assets/img/{{ entry.logo }}" alt=""></a>
+			{% else %}
+				<a {{target}} href="{{ entry.url }}">{{ entry.title }}</a>
+			{% endif %}
+		</li>
+    {% endfor %}
+    </ul>
+</nav>

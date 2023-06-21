@@ -1,0 +1,32 @@
+<div class="video-container">
+	<video id="logo-video" controls="false" muted autoplay="autoplay">
+		<source src="{{ site.baseurl }}/assets/video/logo.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+</div>
+
+<script>
+	video = document.getElementById("logo-video");
+	image_logo = document.getElementById("logo-image");
+	
+	image_logo.classList.add("hidden");
+
+	video.style.display = "block";
+
+	const stopTime = 4.8;
+
+	function step(){
+		if (video.currentTime >= stopTime) {
+			video.pause();
+			video.currentTime = stopTime;
+			video.classList.add("end-video-animation");
+			image_logo.classList.add("end-video-animation-reverse");
+			image_logo.classList.remove("hidden");
+		} else {
+			window.requestAnimationFrame(step);
+		}
+	}
+	
+	window.requestAnimationFrame(step);
+
+</script>

@@ -1,0 +1,49 @@
+<div class="game-title">{{ page.title }}</div>
+
+{% if page.html5_export != null %}
+	<div class="game-container">
+		<iframe scrolling="no" src="{{ site.baseurl }}/assets/html5_exports/{{ page.html5_export }}" frameborder="0" width="{{ page.game_display_width }}" height="{{ page.game_display_height }}">
+			<p>Sorry, your browser does not support this game</p>
+		</iframe>
+		<button class="stop_iframe"></button>
+	</div>
+	
+	<script>
+		const player = document.querySelectorAll('iframe')
+		const close = document.querySelector('.stop_iframe')
+
+		var is_playing = false;
+
+		player.forEach(i => {
+			i.iframe_source = i.src;
+		});
+
+		pause_play = function(){
+			is_playing = !is_playing;
+			close.innerHTML = is_playing ? "STOP" : "PLAY";
+			player.forEach(i => {
+				if(is_playing){
+					i.src = i.iframe_source;
+				} else {
+					i.src = "";
+				}
+			});
+		}
+
+		pause_play();
+
+		close.addEventListener('click', pause_play);	
+	</script>
+
+{% endif %}
+
+{% include project_status_card.html %}
+
+<div id="links">
+	{% if page.steam_page != null %}
+		<a href="{{ page.steam_page }}"> Steam </a>	
+	{% endif %}
+	{% if page.itch_page != null %}
+		<a href="{{ page.itch_page }}"> itch.io </a>	
+	{% endif %}
+</div>

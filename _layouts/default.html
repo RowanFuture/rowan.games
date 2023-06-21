@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: "en" }}">
-
-	{% include head.html %}
-    
-	<main class="page-content" aria-label="Content">
-        {% include title.html %}
-		<div class="wrapper">
-			{{ content }}
-		</div>
-	</main>
-</html>
+{% include header.html %}
+{% include image_logo.html %}
+{% include logo_video.html %}
+{% include navigation.html %}
+	<body>
+		{{ content }}
+	</body>
+{% include footer.html %}
