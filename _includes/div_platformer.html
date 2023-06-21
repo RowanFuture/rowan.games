@@ -1,16 +1,53 @@
 <style>
 
-	.player-character {
-		width:10vh;
-		height:10vh;
+	body::after{
+		position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+		/* hide images */
+		content:
+			url("/assets/page_game/player1.png")
+			url("/assets/page_game/player2.png")
+		;/* load images */
+	}
+
+	.player-object {
+		width:8vh;
+		height:8vh;
 		position: absolute;
-		background-color: white;
 		z-index: 100;
+	}
+	.player-sprite {
+		width:100%;
+		height:100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		image-rendering: pixelated;
 	}
 
 </style>
 
 <script>
+
+	const hasCoarsePointer = () => window.matchMedia("(pointer: coarse)").matches
+	const hasMobileWidth = (maxWidth = 639) =>
+	window.matchMedia(`(max-width: ${maxWidth}px)`).matches
+	const hasMultipleTouchPoints = () => navigator.maxTouchPoints > 1
+	const hasTouchEvents = () => "ontouchstart" in document.documentElement
+
+	const isMobile = ({ maxWidth } = {}) => {
+		return (
+			hasCoarsePointer() &&
+			hasMultipleTouchPoints() &&
+			hasMobileWidth() &&
+			hasTouchEvents()
+		);
+	}
+
+	const isHover = e => e.parentElement.querySelector(':hover') === e;   
+
+	const PLAYER_SPRITES = {
+		1: "/assets/page_game/player1.png",
+		2: "/assets/page_game/player2.png",
+	}
 
 	const KEY_NAME = {
 		ARROW_DOWN: "ArrowDown",
@@ -63,22 +100,39 @@
 		constructor(input_handler,colliders){
 
 			this.vsp = 0;
+			this.last_vsp = 0;
+			this.squash = 0;
+			this.animation_timer = 0;
+			this.facing = 1;
 
 			this.input = input_handler;
 			this.collision_array = colliders;
 
 			this.element = document.createElement("div");
+			this.spriteobject = document.createElement("div");
+
+			this.element.classList.add("player-object");
+			this.spriteobject.classList.add("player-sprite");
+
+			this.element.appendChild(this.spriteobject);
 			document.body.appendChild(this.element);
 
-			this.element.classList.add("player-character");
-
-			this.setPosition(window.innerWidth/2, 0);//window.innerHeight/2
+			this.startPosition();
+		}
+		startPosition(){
+			this.setPosition(window.innerWidth/2, -window.innerHeight*.1);//window.innerHeight/2
+		}
+		setSprite(_sprite){
+			this.spriteobject.style.backgroundImage = `url("${PLAYER_SPRITES[_sprite]}")`;
+		}
+		setScale(_x,_y){
+			this.spriteobject.style.transform = `scaleX(${_x}) scaleY(${_y})`;
 		}
 		setPosition(_nx, _ny){
 			this.x = _nx;
 			this.y = _ny;
-			this.element.style.left = String(this.x) + "px";
-			this.element.style.top = String(this.y) + "px";
+			this.element.style.left = String(this.x - window.innerHeight*.04) + "px";
+			this.element.style.top = String(this.y - window.innerHeight*.04) + "px";
 		}
 		checkForCollision(_nx,_ny){
 			let _cx = this.x;
@@ -87,38 +141,80 @@
 			let _result = false;
 			for(let i = 0; i < this.collision_array.length; i++){
 				if(this.collision_array[i].collision(this.element)){
-					_result = true;
+					_result = this.collision_array[i];
 					break;
 				}
 			}
 			this.setPosition(_cx,_cy);
 			return _result;
 		}
-		update(){
+		update(elapsed){
 
-			const _window_top = window.scrollY;
+			let _x = this.x;
+			let _y = this.y;
+
+			if(this.checkForCollision(this.x,this.y)){
+				this.startPosition();
+			}
+
+			this.animation_timer+=elapsed
+
+			const _window_top = -window.innerHeight*.1;
 			const _screen_width = window.innerWidth;
-			const _screen_height = window.innerHeight + _window_top;
+			const _screen_height = document.body.scrollHeight;
+			
+			const gravity = window.innerHeight*.00015;
+			const hor_speed = window.innerHeight*.005;
+			const jump_speed = window.innerHeight*.005;
+			const max_fall = window.innerHeight*.01;
 
 			const _left = this.input.checkKey(KEY_NAME.ARROW_LEFT);
 			const _right = this.input.checkKey(KEY_NAME.ARROW_RIGHT);
 			const _down = this.input.checkKey(KEY_NAME.ARROW_DOWN);
 			const _up = this.input.checkKey(KEY_NAME.ARROW_UP);
 
-			let _move_hor = _right-_left;
-			let _move_ver = _down-_up;
+			const _move_hor = _right-_left;
+			const _move_ver = _down-_up;
+
+			if(_move_hor != 0){
+				this.facing = Math.sign(_move_hor);
+			}
+
+			let _sprite = 1;
+
+			if(_move_hor != 0 && _move_ver == 0)
+				_sprite = ((this.animation_timer % 10) < 5) ? 1 : 2;
+			else
+				_sprite = (_move_ver != 0) ? 2 : 1;
 			
-			const gravity = window.innerHeight*.00015;
-			const move_hor = window.innerHeight*.005;
+			const _accel = this.vsp - this.last_vsp;
 
-			let _x = this.x;
-			let _y = this.y;
+			this.last_vsp = this.vsp;
+ 
+			this.squash = this.squash*.9;
+			this.squash += _accel;
+			this.squash = Math.min(Math.max(this.squash,-max_fall/2),max_fall/2);
 
-			let _hsp = _move_hor*move_hor;
+			const bounce = this.squash/max_fall;
+			
+			this.setSprite(_sprite);
+			this.setScale((1-bounce)*this.facing, 1+bounce);
+
+
+			const has_ground = this.checkForCollision(_x,_y+hor_speed);
+
+			let _hsp = _move_hor*hor_speed;
 			
 			this.vsp += gravity;
-			this.vsp = Math.min(10,this.vsp);
+			this.vsp = Math.min(max_fall,this.vsp);
 			
+			if(has_ground && _up){
+				this.vsp = -jump_speed;
+			} else if(has_ground && isHover(has_ground.element)){
+				console.log(isHover(has_ground.element));
+				this.vsp = -jump_speed*2;
+			}
+
 			if(!this.checkForCollision(_x+_hsp,_y)){
 				_x += _hsp;
 			} else {
@@ -154,8 +250,8 @@
 	var player = null;
 	const colliders = [];
 
-	window.onload=function(){
-		
+	if(!isMobile()) window.onload=function(){
+
 		const grid_items = document.getElementsByClassName("grid-item");
 
 		for(let i = 0; i < grid_items.length; i++){
@@ -166,10 +262,14 @@
 
 		player = new Player(input,colliders);
 
-		function step(){
+		let previousTimeStamp = 0;
 
-			player.update();
-
+		function step(timeStamp){
+			const elapsed = (timeStamp - previousTimeStamp)/1000*60;
+			
+			player.update(elapsed);
+			
+			previousTimeStamp = timeStamp;
 			window.requestAnimationFrame(step);
 		}
 		
