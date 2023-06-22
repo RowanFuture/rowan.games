@@ -4,8 +4,31 @@
 $backgroundColor: #000;
 $bodyColor: white;
 $bodyFont: 'Poppins',Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-$foregroundColor: rgb(30,30,30);
-$darkBlue: #100354ff;
+$darkBlue: #100354;
+$lightBlue: #2096dd;
+$orange: #ff7d1f;
+$pink: #f897ba;
+$lightGreen: #50d86b;
+$green: #35bd91;
+$blueGreen: #63d0c3;
+$faintBlue: #8ccde7;
+
+a {
+	color: $lightBlue;
+	text-decoration: overline;
+	transition: all .2s;
+}
+a:visited {
+	color: $pink;
+}
+a:hover {
+	color: $orange;
+	cursor:pointer;
+}
+
+button:hover {
+	cursor:pointer;
+}
 
 body {
   background: $backgroundColor;
@@ -17,7 +40,11 @@ body {
 .section-title {
 	font-weight: bold;
 	font-size: 2rem;
-	margin:0;
+	margin:auto;
+	text-align: left;
+	width:60vw;
+	max-width: 60vh;
+	border-bottom: $darkBlue solid .5rem;
 }
 
 html {
@@ -108,13 +135,24 @@ iframe {
 
 .game-container {
 	text-align: center;
-	background-color: $foregroundColor;
 	margin: auto;
 	width: fit-content;
+	background-color: $darkBlue;
 }
 .game-container button {
 	display: block;
     margin: auto;
+	text-decoration: none;
+	border: none;
+	background-color: $darkBlue;
+	font-weight: bold;
+	color: $pink;
+	font-size: 1.5rem;
+	border-left: solid white 1px;
+	border-right: solid white 1px;
+}
+.game-container button:hover {
+	color: $orange;
 }
 
 .grid-container {
@@ -128,6 +166,15 @@ iframe {
 .game-title {
 	text-align: center;
 	margin-bottom: 1rem;
+	margin-top: 1rem;
+	width:100%;
+	max-height: 20vh;
+	font-size: 5vh;
+	color:white;
+	filter: drop-shadow(5px 5px 10rem white) drop-shadow(0 0 2px white);
+}
+.game-title.invert {
+	filter: invert(1) drop-shadow(5px 5px 10rem white) drop-shadow(0 0 2px white);
 }
 .development_status {
 	width:fit-content;
@@ -190,11 +237,73 @@ iframe {
 	width: calc( 100% - 6rem );
 	margin: auto;
 	padding: 1rem;
-	border: white 1px solid;
+	border: $lightBlue 2px solid;
 	margin-top: 2rem;
 	margin-bottom: 5rem;
+	border-radius: 1rem;
 }
 
+.mySlides {display:none;}
+	
+.float-container {
+	padding: 0;
+	margin: 0;
+	overflow-x:hidden;
+    display: flex;
+	flex-grow: 1;
+	position: relative;
+}
+
+.scrollable-content-wrapper {
+	position: absolute;
+	overflow: auto;
+}
+.scrollable-content-wrapper::-webkit-scrollbar {
+	display: none;
+  }
+
+.image-slides {
+	width:90%;
+	margin: 0;
+	font-size: 0;
+	margin-left:10%;
+}
+.slide-select {
+	width:10%;
+	background-color: $darkBlue;
+	margin: 0;
+	padding: 0;
+	font-size:0;
+}
+.float-container::-webkit-scrollbar {
+	display: none;
+}
+
+.slide-select img {
+	width:100%;
+	margin: 0;
+	padding: 0;
+	cursor:pointer;
+}
+
+.slide-image {
+	width:100%;
+}
+
+.slideshow {
+	text-align: center;
+}
+
+.slideshow button {
+	width:5vh;
+	height:5vh;
+	color:white;
+	background-color:$lightBlue;
+	border:none;
+}
+.slideshow button:hover {
+	background-color: $orange;
+}
 
 #game-carousel {
     width:100%;
@@ -224,9 +333,15 @@ iframe {
 	margin: auto;
 	position: absolute;
 	text-align: center;
+	font-weight: bold;
 	top: 50%;
+	font-size: 2vh;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
+}
+.img-center div {
+	width:90%;
+	margin: auto;
 }
 .gamecard {
     width:100%;

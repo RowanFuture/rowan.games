@@ -1,8 +1,8 @@
 ---
 layout: project
-development_status: "in_development"
+development_status: "complete"
 steam_page: 
-itch_page: 
+itch_page: "https://rowanfuture.itch.io/witchie"
 html5_export:
 ---
 

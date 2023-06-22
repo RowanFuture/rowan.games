@@ -1,0 +1,109 @@
+<style>
+
+.slide-select-image.current {
+	z-index: 10;
+	filter: drop-shadow(.5vh 0 1vh white);
+	border-right: .5vh solid white;
+}
+.scrollbar {
+	width:1%;
+	height: 100%;
+	background-color: black;
+	position: absolute;
+    z-index: 200;
+    transform: translateY(0%);
+	opacity: .5;
+}
+.scrollbar-slider {
+	width:100%;
+	height: 100%;
+	background-color: white;
+	border-radius: 100%;
+}
+
+</style>
+
+<div class="slideshow">
+
+	<div class="float-container">
+
+		<div class="float-child image-slides">
+			{% for _img in include.data %}
+				<div class="mySlides">
+					<img class="slide-image" src="{{_img}}" alt="">
+				</div>
+			{% endfor %}
+		</div>
+		<div class="scrollable-content-wrapper">
+			<div  class="slide-select float-child">
+				{% for _img in include.data %}
+					<img class="slide-select-image" src="{{_img}}" alt="">
+				{% endfor %}
+			</div>
+		</div>
+		<!-- <div class="scrollbar"> -->
+			<!-- <div class="scrollbar-slider"></div> -->
+		<!-- </div> -->
+
+	</div>
+
+
+	<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+	<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
+<script>
+	
+	const container = document.getElementsByClassName("float-container")[0];
+	// const scrollbar = document.getElementsByClassName("scrollbar")[0];
+	const slides = document.getElementsByClassName("slide-select");
+	
+	var slideIndex = 0;
+	showDivs();
+
+	function plusDivs(n) {
+		slideIndex += n;
+		showDivs();
+	}
+
+	for(let j = 0; j < slides.length; j++){
+		const slide = slides[j];
+		for(let i = 0; i < slide.children.length; i++){
+			const n = i;
+			slide.children[i].addEventListener("click", () => { slideIndex=n; showDivs(); });
+		}
+	}
+
+	container.addEventListener("scroll", (event) => {
+		const slider = document.getElementsByClassName("mySlides");
+		for(var i = 0; i < slider.length; i++){
+			slider[i].style.transform = `translateY(${container.scrollTop+"px"})`;
+		}
+		// scrollbar.style.transform = `translateY(${container.scrollTop+"px"})`;
+	});
+
+	function showDivs(n) {
+		const vis = document.getElementsByClassName("mySlides");
+		const slides = document.getElementsByClassName("slide-select");
+		
+		if (slideIndex >= vis.length) {
+			slideIndex = 0;
+		}
+		if (slideIndex < 0) {
+			slideIndex = vis.length-1
+		};
+
+		for (let i = 0; i < vis.length; i++) {
+			vis[i].style.display = "none";
+			slides[0].children[i].classList.remove("current");
+		}
+		vis[slideIndex].style.display = "block";
+		slides[0].children[slideIndex].classList.add("current");
+		
+		// console.log(container.getBoundingClientRect().height);
+		
+		// scrollbar.children[0].style.height = (vis[slideIndex].getBoundingClientRect().height / container.getBoundingClientRect().height)*100+"%";
+		//	scrollbar[j].style.height = vis[slideIndex].getBoundingClientRect().height+"px";
+	}
+
+</script>

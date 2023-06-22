@@ -4,6 +4,22 @@ title: "Rowan Future" # the name of your site, e.g. ACME Corp.
 lang: "EN-US"
 main-css: "/assets/css/main.css"
 
+drifting-cloud-images:
+  - "/assets/drifting_cloud_images/1.jpg"
+  - "/assets/drifting_cloud_images/2.jpg"
+  - "/assets/drifting_cloud_images/3.jpg"
+  - "/assets/drifting_cloud_images/4.jpg"
+  - "/assets/drifting_cloud_images/5.jpg"
+
+blue-energy-images:
+  - "/assets/blue_energy_images/1.jpg"
+  - "/assets/blue_energy_images/2.jpg"
+  - "/assets/blue_energy_images/3.jpg"
+  - "/assets/blue_energy_images/4.jpg"
+  - "/assets/blue_energy_images/5.jpg"
+  - "/assets/blue_energy_images/6.jpg"
+  - "/assets/blue_energy_images/7.jpg"
+
 permalink: pretty
 
 collections:

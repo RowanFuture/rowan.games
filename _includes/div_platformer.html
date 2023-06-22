@@ -150,12 +150,12 @@
 		}
 		update(elapsed){
 
-			let _x = this.x;
-			let _y = this.y;
-
 			if(this.checkForCollision(this.x,this.y)){
 				this.startPosition();
 			}
+
+			let _x = this.x;
+			let _y = this.y;
 
 			this.animation_timer+=elapsed
 

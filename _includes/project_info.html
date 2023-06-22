@@ -1,4 +1,21 @@
-<div class="game-title">{{ page.title }}</div>
+{% if page.logo_img != null %}
+	{% if page.invert_logo == true %}
+		<img class="game-title invert" src="{{ site.base_url }}/assets/img/{{ page.logo_img }}" alt="{{ page.title }}">
+	{% else %}
+		<img class="game-title" src="{{ site.base_url }}/assets/img/{{ page.logo_img }}" alt="{{ page.title }}">
+	{% endif %}
+{% else %}
+
+	{% assign words = page.title | split: ' ' %}
+
+	{% capture titlecase %}
+		{% for word in words %}
+			{{ word | capitalize }}
+		{% endfor %}
+	{% endcapture %}
+	
+	<div class="game-title">{{ titlecase}}</div>
+{% endif %}
 
 {% if page.html5_export != null %}
 	<div class="game-container">
@@ -39,11 +56,25 @@
 
 {% include project_status_card.html %}
 
-<div id="links">
+<div style="display:flex; width:fit-content; margin:auto;">
+
 	{% if page.steam_page != null %}
 		<a href="{{ page.steam_page }}"> Steam </a>	
 	{% endif %}
 	{% if page.itch_page != null %}
 		<a href="{{ page.itch_page }}"> itch.io </a>	
 	{% endif %}
+
 </div>
+
+<div id="project-content">
+	{{ include.data }}
+</div>
+
+{% if page.with_help_from != null %}
+	<div id="with-help-from">
+		with help from:
+		<br>
+		{{ page.with_help_from }}
+	</div>
+{% endif %}

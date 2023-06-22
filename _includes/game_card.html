@@ -5,10 +5,8 @@
 	{% else %}
 		<div class="gamecard">
 	{% endif %}
-		<div class="gloss g1"></div>
-		<div class="gloss g2"></div>
 		<div class="img-center">
-			{% if include.data.card_img != null %}
+			{% if include.data.logo_img != null %}
 				<img src="{{ site.base_url }}/assets/img/{{ include.data.logo_img }}" class="game-logo">
 			{% else %}
 
@@ -24,5 +22,7 @@
 				
 			{% endif %}
 		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
 	</div>
 </div>
