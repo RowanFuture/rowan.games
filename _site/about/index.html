@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+	</head>
+<div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>
+<div class="video-container">
+	<video id="logo-video" controls="false" muted autoplay="autoplay">
+		<source src="/assets/video/logo.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+</div>
+
+<script>
+	video = document.getElementById("logo-video");
+	image_logo = document.getElementById("logo-image");
+	
+	image_logo.classList.add("hidden");
+
+	video.style.display = "block";
+
+	const stopTime = 4.8;
+
+	function step(){
+		if (video.currentTime >= stopTime) {
+			video.pause();
+			video.currentTime = stopTime;
+			video.classList.add("end-video-animation");
+			image_logo.classList.add("end-video-animation-reverse");
+			image_logo.classList.remove("hidden");
+		} else {
+			window.requestAnimationFrame(step);
+		}
+	}
+	
+	window.requestAnimationFrame(step);
+
+</script>
+
+
+    
+        
+    
+
+
+    
+
+
+    
+
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<p>about me</p>
+
+	</body>
+</html>

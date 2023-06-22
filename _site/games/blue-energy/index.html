@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+				Blue energy - 
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+	</head>
+<div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>
+
+
+    
+        
+    
+
+
+    
+
+
+    
+
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<div class="project-container">
+			
+	
+		<img class="game-title" src="/assets/img/be-logo.svg" alt="Blue energy">
+	
+
+
+
+
+<div class="development_status 
+	
+			status_yellow">
+			ON HOLD
+		
+</div>
+
+<div style="display:flex; width:fit-content; margin:auto;">
+
+	
+		<a href="https://store.steampowered.com/app/773710/Drifting_Cloud/"> Steam </a>	
+	
+	
+
+</div>
+
+<div id="project-content">
+	<section><style>
+
+.slide-select-image.current {
+	z-index: 10;
+	filter: drop-shadow(.5vh 0 1vh white);
+	border-right: .5vh solid white;
+}
+.scrollbar {
+	width:1%;
+	height: 100%;
+	background-color: black;
+	position: absolute;
+    z-index: 200;
+    transform: translateY(0%);
+	opacity: .5;
+}
+.scrollbar-slider {
+	width:100%;
+	height: 100%;
+	background-color: white;
+	border-radius: 100%;
+}
+
+</style>
+
+<div class="slideshow">
+
+	<div class="float-container">
+
+		<div class="float-child image-slides">
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/1.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/2.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/3.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/4.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/5.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/6.jpg" alt="" />
+				</div>
+			
+				<div class="mySlides">
+					<img class="slide-image" src="/assets/blue_energy_images/7.jpg" alt="" />
+				</div>
+			
+		</div>
+		<div class="scrollable-content-wrapper">
+			<div class="slide-select float-child">
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/1.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/2.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/3.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/4.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/5.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/6.jpg" alt="" />
+				
+					<img class="slide-select-image" src="/assets/blue_energy_images/7.jpg" alt="" />
+				
+			</div>
+		</div>
+		<!-- <div class="scrollbar"> -->
+			<!-- <div class="scrollbar-slider"></div> -->
+		<!-- </div> -->
+
+	</div>
+
+
+	<button class="w3-button w3-display-left w3-black" onclick="plusDivs(-1)">&#10094;</button>
+	<button class="w3-button w3-display-right w3-black" onclick="plusDivs(1)">&#10095;</button>
+</div>
+
+<script>
+	
+	const container = document.getElementsByClassName("float-container")[0];
+	// const scrollbar = document.getElementsByClassName("scrollbar")[0];
+	const slides = document.getElementsByClassName("slide-select");
+	
+	var slideIndex = 0;
+	showDivs();
+
+	function plusDivs(n) {
+		slideIndex += n;
+		showDivs();
+	}
+
+	for(let j = 0; j < slides.length; j++){
+		const slide = slides[j];
+		for(let i = 0; i < slide.children.length; i++){
+			const n = i;
+			slide.children[i].addEventListener("click", () => { slideIndex=n; showDivs(); });
+		}
+	}
+
+	container.addEventListener("scroll", (event) => {
+		const slider = document.getElementsByClassName("mySlides");
+		for(var i = 0; i < slider.length; i++){
+			slider[i].style.transform = `translateY(${container.scrollTop+"px"})`;
+		}
+		// scrollbar.style.transform = `translateY(${container.scrollTop+"px"})`;
+	});
+
+	function showDivs(n) {
+		const vis = document.getElementsByClassName("mySlides");
+		const slides = document.getElementsByClassName("slide-select");
+		
+		if (slideIndex >= vis.length) {
+			slideIndex = 0;
+		}
+		if (slideIndex < 0) {
+			slideIndex = vis.length-1
+		};
+
+		for (let i = 0; i < vis.length; i++) {
+			vis[i].style.display = "none";
+			slides[0].children[i].classList.remove("current");
+		}
+		vis[slideIndex].style.display = "block";
+		slides[0].children[slideIndex].classList.add("current");
+		
+		// console.log(container.getBoundingClientRect().height);
+		
+		// scrollbar.children[0].style.height = (vis[slideIndex].getBoundingClientRect().height / container.getBoundingClientRect().height)*100+"%";
+		//	scrollbar[j].style.height = vis[slideIndex].getBoundingClientRect().height+"px";
+	}
+
+</script></section>
+
+<!-- I started work on Blue Energy in !!2018????!! while I was still in highschool. -->
+
+<!-- For a long time it was a 2D game until I started using GameMaker to make 3D games. -->
+
+<!-- Then I worked on it for around 6 months and released a demo at the same time as releasing a Kickstarter. -->
+
+<!-- At that time I realised the concept for the game wasn't fully thought-out and the whole thing was more of a learning experience for me than a real game -->
+
+</div>
+
+
+		</div>
+	</body>
+</html>

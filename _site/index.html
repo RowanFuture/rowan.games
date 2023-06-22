@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+	</head>
+<div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>
+<div class="video-container">
+	<video id="logo-video" controls="false" muted autoplay="autoplay">
+		<source src="/assets/video/logo.webm" type="video/webm">
+		Your browser does not support the video tag.
+	</video>
+</div>
+
+<script>
+	video = document.getElementById("logo-video");
+	image_logo = document.getElementById("logo-image");
+	
+	image_logo.classList.add("hidden");
+
+	video.style.display = "block";
+
+	const stopTime = 4.8;
+
+	function step(){
+		if (video.currentTime >= stopTime) {
+			video.pause();
+			video.currentTime = stopTime;
+			video.classList.add("end-video-animation");
+			image_logo.classList.add("end-video-animation-reverse");
+			image_logo.classList.remove("hidden");
+		} else {
+			window.requestAnimationFrame(step);
+		}
+	}
+	
+	window.requestAnimationFrame(step);
+
+</script>
+
+
+    
+        
+        
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<p><br /></p>
+
+<div class="landing-page">
+
+	<p class="section-title">GAMES</p>
+
+	<div class="grid-container">
+	
+		<div class="grid-item"><a href="/games/blue-energy/"><div class="card-container">
+	
+	
+		<div class="gamecard" style="background-image: url('/assets/img/be-bg-small.png')">
+	
+		<div class="img-center">
+			
+				<img src="/assets/img/be-logo.svg" class="game-logo" />
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/games/drifting-cloud/"><div class="card-container">
+	
+	
+		<div class="gamecard" style="background-image: url('/assets/img/dc-bg-small.png')">
+	
+		<div class="img-center">
+			
+				<img src="/assets/img/dc-logo.svg" class="game-logo" />
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/games/imura/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Imura
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+</div>
+	
+	<p class="section-title">PROJECTS</p>
+
+	<div class="grid-container">
+	
+		<div class="grid-item"><a href="/projects/starline-horizon/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Starline
+					
+						Horizon
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/witchie/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Witchie
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/sleef-2/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Sleef
+					
+						2
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/red/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Red
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/sleef-1/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Sleef
+					
+						1
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/untitled-driving-game/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Untitled
+					
+						Driving
+					
+						Game
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/witchie-gamejam/"><div class="card-container">
+	
+	
+		<div class="gamecard">
+	
+		<div class="img-center">
+			
+
+				
+
+				
+
+				<div>
+					
+						Witchie
+					
+						Gamejam
+					
+				</div>
+				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+</div>
+	
+</div>
+
+<script>
+
+	function wc_hex_is_light(color) {
+		const hex = color.replace('#', '');
+		const c_r = parseInt(hex.substring(0, 0 + 2), 16);
+		const c_g = parseInt(hex.substring(2, 2 + 2), 16);
+		const c_b = parseInt(hex.substring(4, 4 + 2), 16);
+		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
+		console.log(brightness);
+		return brightness > 155;
+	}
+
+	const getRandomHslColor = () => {
+		// Define an async function that returns a random number within a range
+		const getRandomNumber = (min, max) =>
+			Math.round(Math.random() * (max - min) + min);
+
+		// Destructure an object that contains three random numbers for hue, saturation and lightness
+		const { hue, saturation, lightness } = {
+			hue: getRandomNumber(0, 360),
+			saturation: getRandomNumber(20, 90),
+			lightness: getRandomNumber(20, 90),
+		};
+		// Return the string with hsl prefix
+		return {
+			hue: hue,
+			saturation: saturation,
+			lightness: lightness,
+			text: `hsl(${hue}, ${saturation}%, ${lightness}%)`
+		};
+	};
+	
+	const getRandomColor = () => {
+
+		const colors = [
+			'#100354',
+			'#2096dd',
+			'#ff7d1f',
+			'#f897ba',
+			'#35bd91',
+			'#63d0c3',
+			'#8ccde7',
+			'#50d86b',
+		];
+
+		return colors[Math.floor(Math.random() * colors.length)];
+	}
+
+	const grid_items = document.getElementsByClassName("grid-item");
+
+	for(let i = 0; i < grid_items.length; i++){
+		const _col = getRandomColor();
+		grid_items[i].querySelector('.gamecard').style['background-color'] = _col;
+		//.lightness < 50
+		grid_items[i].querySelector('.img-center').children[0].style['color'] = wc_hex_is_light(_col) ? 'black' : 'white';
+	}
+</script>
+
+<style>
+
+	body::after{
+		position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
+		/* hide images */
+		content:
+			url("/assets/page_game/player1.png")
+			url("/assets/page_game/player2.png")
+		;/* load images */
+	}
+
+	.player-object {
+		width:8vh;
+		height:8vh;
+		position: absolute;
+		z-index: 100;
+	}
+	.player-sprite {
+		width:100%;
+		height:100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		image-rendering: pixelated;
+	}
+
+</style>
+
+<script>
+
+	const hasCoarsePointer = () => window.matchMedia("(pointer: coarse)").matches
+	const hasMobileWidth = (maxWidth = 639) =>
+	window.matchMedia(`(max-width: ${maxWidth}px)`).matches
+	const hasMultipleTouchPoints = () => navigator.maxTouchPoints > 1
+	const hasTouchEvents = () => "ontouchstart" in document.documentElement
+
+	const isMobile = ({ maxWidth } = {}) => {
+		return (
+			hasCoarsePointer() &&
+			hasMultipleTouchPoints() &&
+			hasMobileWidth() &&
+			hasTouchEvents()
+		);
+	}
+
+	const isHover = e => e.parentElement.querySelector(':hover') === e;   
+
+	const PLAYER_SPRITES = {
+		1: "/assets/page_game/player1.png",
+		2: "/assets/page_game/player2.png",
+	}
+
+	const KEY_NAME = {
+		ARROW_DOWN: "ArrowDown",
+		ARROW_UP: "ArrowUp",
+		ARROW_LEFT: "ArrowLeft",
+		ARROW_RIGHT: "ArrowRight",
+	}
+
+	class Collider {
+		constructor(element){
+			this.element = element;
+		}
+		collision(_other){
+			const div1 = this.element.getBoundingClientRect();
+			const div2 = _other.getBoundingClientRect();
+			return (div1.right > div2.left && 
+					div1.left < div2.right && 
+					div1.bottom > div2.top && 
+					div1.top < div2.bottom)
+		}
+	}
+
+	class InputHandler {
+		constructor() {
+
+			this.keyMap = {};
+
+			window.addEventListener("keydown", (event) => { this.handleInputDown(event); } );
+			window.addEventListener("keyup", (event) => { this.handleInputUp(event); } );
+		}
+		handleInputDown(event){
+			if (event.defaultPrevented) {
+				return;
+			}
+			this.keyMap[event.key] = true;
+		}
+		handleInputUp(event){
+			if (event.defaultPrevented) {
+				return;
+			}
+			this.keyMap[event.key] = false;
+		}
+		checkKey(key_name){
+			let _val = this.keyMap[key_name];
+			return isNaN(_val) ? 0 : _val;
+		}
+	}
+	
+	class Player {
+		constructor(input_handler,colliders){
+
+			this.vsp = 0;
+			this.last_vsp = 0;
+			this.squash = 0;
+			this.animation_timer = 0;
+			this.facing = 1;
+
+			this.input = input_handler;
+			this.collision_array = colliders;
+
+			this.element = document.createElement("div");
+			this.spriteobject = document.createElement("div");
+
+			this.element.classList.add("player-object");
+			this.spriteobject.classList.add("player-sprite");
+
+			this.element.appendChild(this.spriteobject);
+			document.body.appendChild(this.element);
+
+			this.startPosition();
+		}
+		startPosition(){
+			this.setPosition(window.innerWidth/2, -window.innerHeight*.1);//window.innerHeight/2
+		}
+		setSprite(_sprite){
+			this.spriteobject.style.backgroundImage = `url("${PLAYER_SPRITES[_sprite]}")`;
+		}
+		setScale(_x,_y){
+			this.spriteobject.style.transform = `scaleX(${_x}) scaleY(${_y})`;
+		}
+		setPosition(_nx, _ny){
+			this.x = _nx;
+			this.y = _ny;
+			this.element.style.left = String(this.x - window.innerHeight*.04) + "px";
+			this.element.style.top = String(this.y - window.innerHeight*.04) + "px";
+		}
+		checkForCollision(_nx,_ny){
+			let _cx = this.x;
+			let _cy = this.y;
+			this.setPosition(_nx,_ny);
+			let _result = false;
+			for(let i = 0; i < this.collision_array.length; i++){
+				if(this.collision_array[i].collision(this.element)){
+					_result = this.collision_array[i];
+					break;
+				}
+			}
+			this.setPosition(_cx,_cy);
+			return _result;
+		}
+		update(elapsed){
+
+			if(this.checkForCollision(this.x,this.y)){
+				this.startPosition();
+			}
+
+			let _x = this.x;
+			let _y = this.y;
+
+			this.animation_timer+=elapsed
+
+			const _window_top = -window.innerHeight*.1;
+			const _screen_width = window.innerWidth;
+			const _screen_height = document.body.scrollHeight;
+			
+			const gravity = window.innerHeight*.00015;
+			const hor_speed = window.innerHeight*.005;
+			const jump_speed = window.innerHeight*.005;
+			const max_fall = window.innerHeight*.01;
+
+			const _left = this.input.checkKey(KEY_NAME.ARROW_LEFT);
+			const _right = this.input.checkKey(KEY_NAME.ARROW_RIGHT);
+			const _down = this.input.checkKey(KEY_NAME.ARROW_DOWN);
+			const _up = this.input.checkKey(KEY_NAME.ARROW_UP);
+
+			const _move_hor = _right-_left;
+			const _move_ver = _down-_up;
+
+			if(_move_hor != 0){
+				this.facing = Math.sign(_move_hor);
+			}
+
+			let _sprite = 1;
+
+			if(_move_hor != 0 && _move_ver == 0)
+				_sprite = ((this.animation_timer % 10) < 5) ? 1 : 2;
+			else
+				_sprite = (_move_ver != 0) ? 2 : 1;
+			
+			const _accel = this.vsp - this.last_vsp;
+
+			this.last_vsp = this.vsp;
+ 
+			this.squash = this.squash*.9;
+			this.squash += _accel;
+			this.squash = Math.min(Math.max(this.squash,-max_fall/2),max_fall/2);
+
+			const bounce = this.squash/max_fall;
+			
+			this.setSprite(_sprite);
+			this.setScale((1-bounce)*this.facing, 1+bounce);
+
+
+			const has_ground = this.checkForCollision(_x,_y+hor_speed);
+
+			let _hsp = _move_hor*hor_speed;
+			
+			this.vsp += gravity;
+			this.vsp = Math.min(max_fall,this.vsp);
+			
+			if(has_ground && _up){
+				this.vsp = -jump_speed;
+			} else if(has_ground && isHover(has_ground.element)){
+				console.log(isHover(has_ground.element));
+				this.vsp = -jump_speed*2;
+			}
+
+			if(!this.checkForCollision(_x+_hsp,_y)){
+				_x += _hsp;
+			} else {
+				while(!this.checkForCollision(_x+Math.sign(_hsp),_y)){
+					_x += Math.sign(_hsp);
+				}
+			}
+
+			if(!this.checkForCollision(_x,_y+ this.vsp)){
+				_y += this.vsp;
+			} else {
+				while(!this.checkForCollision(_x,_y+Math.sign(this.vsp))){
+					_y += Math.sign(this.vsp);
+				}
+				this.vsp = 0;
+			}
+
+			if(_y > _screen_height){
+				_y = _window_top;
+			}
+
+			if(_x < 0){
+				_x = _screen_width;
+			}
+			if(_x > _screen_width){
+				_x = 0;
+			}
+
+			this.setPosition(_x, _y);
+		}
+	};
+
+	var player = null;
+	const colliders = [];
+
+	if(!isMobile()) window.onload=function(){
+
+		const grid_items = document.getElementsByClassName("grid-item");
+
+		for(let i = 0; i < grid_items.length; i++){
+			colliders.push(new Collider(grid_items[i]));
+		}
+
+		const input = new InputHandler();
+
+		player = new Player(input,colliders);
+
+		let previousTimeStamp = 0;
+
+		function step(timeStamp){
+			const elapsed = (timeStamp - previousTimeStamp)/1000*60;
+			
+			player.update(elapsed);
+			
+			previousTimeStamp = timeStamp;
+			window.requestAnimationFrame(step);
+		}
+		
+		window.requestAnimationFrame(step);
+	}
+
+</script>
+
+
+	</body>
+</html>
