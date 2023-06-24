@@ -139,7 +139,7 @@ document.write('<script type="text/javascript" src="scripts/SWF/yySWFTimeline.js
 document.write('<script type="text/javascript" src="scripts/yyWebGL.js"></script>');
 document.write('<script type="text/javascript" src="scripts/yyTextureGroupInfo.js"></script>');
 document.write('<script type="text/javascript" src="scripts/LoadGame.js"></script>');
-document.write('<script type="text/javascript" src="scripts/_GameMaker.js"></script>');
+document.write('<script type="text/javascript" src="scripts/GGameMaker.js"></script>');
 
 document.write('<script type="text/javascript" src="scripts/fontjs/Font.js"></script>');
 document.write('<script type="text/javascript" src="scripts/jsBox2D/jsliquidfun.js"></script>');
