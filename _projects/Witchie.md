@@ -5,12 +5,3 @@ steam_page:
 itch_page: 
 html5_export:
 ---
-
-<!-- A new secret project -->
-<!-- //images -->
-
-<!-- Potion Mission -->
-<!-- //link -->
-
-<!-- The original Witchie Jam version -->
-<!-- //link -->

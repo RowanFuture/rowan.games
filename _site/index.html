@@ -133,21 +133,11 @@
 		<div class="grid-item"><a href="/games/imura/"><div class="card-container">
 	
 	
-		<div class="gamecard">
+		<div class="gamecard" style="background-image: url('/assets/img/sleef2-cover.png')">
 	
 		<div class="img-center">
 			
-
-				
-
-				
-
-				<div>
-					
-						Imura
-					
-				</div>
-				
+				<img src="/assets/img/imuralogo.png" class="game-logo" />
 			
 		</div>
 		<div class="gloss g1"></div>
@@ -161,7 +151,7 @@
 
 	<div class="grid-container">
 	
-		<div class="grid-item"><a href="/projects/starline-horizon/"><div class="card-container">
+		<div class="grid-item"><a href="/projects/untitled-driving-game/"><div class="card-container">
 	
 	
 		<div class="gamecard">
@@ -175,12 +165,29 @@
 
 				<div>
 					
-						Starline
+						Untitled
 					
-						Horizon
+						Driving
+					
+						Game
 					
 				</div>
 				
+			
+		</div>
+		<div class="gloss g1"></div>
+		<div class="gloss g2"></div>
+	</div>
+</div></a></div>
+	
+		<div class="grid-item"><a href="/projects/starline-horizon/"><div class="card-container">
+	
+	
+		<div class="gamecard" style="background-image: url('/assets/img/starline_background.png')">
+	
+		<div class="img-center">
+			
+				<img src="/assets/img/starline-logo.png" class="game-logo" />
 			
 		</div>
 		<div class="gloss g1"></div>
@@ -213,33 +220,6 @@
 	</div>
 </div></a></div>
 	
-		<div class="grid-item"><a href="/projects/sleef-2/"><div class="card-container">
-	
-	
-		<div class="gamecard">
-	
-		<div class="img-center">
-			
-
-				
-
-				
-
-				<div>
-					
-						Sleef
-					
-						2
-					
-				</div>
-				
-			
-		</div>
-		<div class="gloss g1"></div>
-		<div class="gloss g2"></div>
-	</div>
-</div></a></div>
-	
 		<div class="grid-item"><a href="/projects/red/"><div class="card-container">
 	
 	
@@ -255,62 +235,6 @@
 				<div>
 					
 						Red
-					
-				</div>
-				
-			
-		</div>
-		<div class="gloss g1"></div>
-		<div class="gloss g2"></div>
-	</div>
-</div></a></div>
-	
-		<div class="grid-item"><a href="/projects/sleef-1/"><div class="card-container">
-	
-	
-		<div class="gamecard">
-	
-		<div class="img-center">
-			
-
-				
-
-				
-
-				<div>
-					
-						Sleef
-					
-						1
-					
-				</div>
-				
-			
-		</div>
-		<div class="gloss g1"></div>
-		<div class="gloss g2"></div>
-	</div>
-</div></a></div>
-	
-		<div class="grid-item"><a href="/projects/untitled-driving-game/"><div class="card-container">
-	
-	
-		<div class="gamecard">
-	
-		<div class="img-center">
-			
-
-				
-
-				
-
-				<div>
-					
-						Untitled
-					
-						Driving
-					
-						Game
 					
 				</div>
 				
@@ -360,7 +284,6 @@
 		const c_g = parseInt(hex.substring(2, 2 + 2), 16);
 		const c_b = parseInt(hex.substring(4, 4 + 2), 16);
 		const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000;
-		console.log(brightness);
 		return brightness > 155;
 	}
 
@@ -412,15 +335,6 @@
 
 <style>
 
-	body::after{
-		position:absolute; width:0; height:0; overflow:hidden; z-index:-1;
-		/* hide images */
-		content:
-			url("/assets/page_game/player1.png")
-			url("/assets/page_game/player2.png")
-		;/* load images */
-	}
-
 	.player-object {
 		width:8vh;
 		height:8vh;
@@ -456,11 +370,53 @@
 
 	const isHover = e => e.parentElement.querySelector(':hover') === e;   
 
-	const PLAYER_SPRITES = {
-		1: "/assets/page_game/player1.png",
-		2: "/assets/page_game/player2.png",
+	const SPRITE_MAP = {
+		player1: "/assets/page_game/player1.png",
+		player2: "/assets/page_game/player2.png",
+		star: "/assets/page_game/star.png",
 	}
 
+	const loadImage = (name) => {
+		const url = SPRITE_MAP[name];
+		return new Promise((resolve, reject) => {
+			const img = new Image();
+			img.onload = () => resolve({
+				width: img.width,
+				height: img.height,
+				src: img.src,
+				url: url,
+				name: name,
+			});
+			img.onerror = (error) => reject(error);
+			img.src = url;
+		});
+	};
+
+	class Sprite {
+		constructor(data){
+			this.width = data.width;
+			this.height = data.height;
+			this.url = data.url;
+			this.src = data.src;
+			this.name = data.name;
+		}
+		sprite_url(){
+			return `url(${this.url})`;
+		}
+	}
+
+	async function loadGameData() {
+		const promises = [];
+		
+		for (const name in SPRITE_MAP) {
+			promises.push(loadImage(name));
+		}
+
+		await Promise.allSettled(promises).then((results) => results.forEach((result) => {
+			SPRITE_MAP[result.value.name] = new Sprite(result.value);
+		}));
+	}
+	
 	const KEY_NAME = {
 		ARROW_DOWN: "ArrowDown",
 		ARROW_UP: "ArrowUp",
@@ -471,10 +427,11 @@
 	class Collider {
 		constructor(element){
 			this.element = element;
+			this.is_parent = false;
 		}
 		collision(_other){
 			const div1 = this.element.getBoundingClientRect();
-			const div2 = _other.getBoundingClientRect();
+			const div2 = _other.element.getBoundingClientRect();
 			return (div1.right > div2.left && 
 					div1.left < div2.right && 
 					div1.bottom > div2.top && 
@@ -482,7 +439,7 @@
 		}
 	}
 
-	class InputHandler {
+	class PCInputHandler {
 		constructor() {
 
 			this.keyMap = {};
@@ -507,9 +464,82 @@
 			return isNaN(_val) ? 0 : _val;
 		}
 	}
+
+	const game_object_map = {};
+
+	class GameObject {
+		constructor(x,y,sprite){
+
+			if(!game_object_map.hasOwnProperty(this.constructor.name))
+				game_object_map[this.constructor.name] = [];
+			
+			game_object_map[this.constructor.name].push(this);
+
+			this.is_parent = true;
+
+			this.width = SPRITE_MAP[sprite].width/24*.04;
+			this.height = SPRITE_MAP[sprite].height/24*.04;
+			
+			this.element = document.createElement("div");
+			this.sprite = document.createElement("div");
+			
+			this.element.classList.add("player-object");
+			this.sprite.classList.add("player-sprite");
+
+			this.element.appendChild(this.sprite);
+			document.body.appendChild(this.element);
+			
+			this.collider = new Collider(this.element);
+
+			this.setPosition(x,y);
+			
+			this.setSprite(sprite);
+		}
+		setPosition(x, y){
+			this.x = x;
+			this.y = y;
+			this.element.style.left = String(this.x - window.innerHeight*this.width) + "px";
+			this.element.style.top = String(this.y - window.innerHeight*this.height) + "px";
+		}
+		setSprite(_sprite){
+			this.sprite.style.backgroundImage = SPRITE_MAP[_sprite].sprite_url();
+		}
+		setScale(_x,_y){
+			this.sprite.style.transform = `scaleX(${_x}) scaleY(${_y})`;
+		}
+		checkForCollision(x,y,type){
+			const array = game_object_map[type];
+			const _cx = this.x;
+			const _cy = this.y;
+			this.setPosition(x,y);
+			let _result = false;
+			for(let i = 0; i < array.length; i++){
+				if((array[i].is_parent ? array[i].collider : array[i]).collision(this.collider)){
+					_result = array[i];
+					break;
+				}
+			}
+			this.setPosition(_cx,_cy);
+			return _result;
+		}
+	}
+
+	class Star extends GameObject {
+		constructor(x,y){
+			super(x,y,"star");
+		}
+	}
 	
-	class Player {
-		constructor(input_handler,colliders){
+	class Player extends GameObject {
+		constructor(input){
+
+			const _start_pos = [window.innerWidth/2, -window.innerHeight*.1];
+
+			super(..._start_pos,"player1");
+
+			this.start_position = _start_pos;
+
+			this.input = input;
 
 			this.vsp = 0;
 			this.last_vsp = 0;
@@ -517,53 +547,15 @@
 			this.animation_timer = 0;
 			this.facing = 1;
 
-			this.input = input_handler;
-			this.collision_array = colliders;
-
-			this.element = document.createElement("div");
-			this.spriteobject = document.createElement("div");
-
-			this.element.classList.add("player-object");
-			this.spriteobject.classList.add("player-sprite");
-
-			this.element.appendChild(this.spriteobject);
-			document.body.appendChild(this.element);
-
-			this.startPosition();
+			this.setPosition(...this.start_position);
 		}
-		startPosition(){
-			this.setPosition(window.innerWidth/2, -window.innerHeight*.1);//window.innerHeight/2
-		}
-		setSprite(_sprite){
-			this.spriteobject.style.backgroundImage = `url("${PLAYER_SPRITES[_sprite]}")`;
-		}
-		setScale(_x,_y){
-			this.spriteobject.style.transform = `scaleX(${_x}) scaleY(${_y})`;
-		}
-		setPosition(_nx, _ny){
-			this.x = _nx;
-			this.y = _ny;
-			this.element.style.left = String(this.x - window.innerHeight*.04) + "px";
-			this.element.style.top = String(this.y - window.innerHeight*.04) + "px";
-		}
-		checkForCollision(_nx,_ny){
-			let _cx = this.x;
-			let _cy = this.y;
-			this.setPosition(_nx,_ny);
-			let _result = false;
-			for(let i = 0; i < this.collision_array.length; i++){
-				if(this.collision_array[i].collision(this.element)){
-					_result = this.collision_array[i];
-					break;
-				}
-			}
-			this.setPosition(_cx,_cy);
-			return _result;
-		}
+		//startPosition(){
+		//	return [window.innerWidth/2, -window.innerHeight*.1];//window.innerHeight/2
+		//}
 		update(elapsed){
 
-			if(this.checkForCollision(this.x,this.y)){
-				this.startPosition();
+			if(this.checkForCollision(this.x,this.y,"solid")){
+				this.setPosition(...this.start_position);
 			}
 
 			let _x = this.x;
@@ -595,9 +587,9 @@
 			let _sprite = 1;
 
 			if(_move_hor != 0 && _move_ver == 0)
-				_sprite = ((this.animation_timer % 10) < 5) ? 1 : 2;
+				_sprite = ((this.animation_timer % 10) < 5) ? "player1" : "player2";
 			else
-				_sprite = (_move_ver != 0) ? 2 : 1;
+				_sprite = (_move_ver != 0) ? "player2" : "player1";
 			
 			const _accel = this.vsp - this.last_vsp;
 
@@ -613,7 +605,7 @@
 			this.setScale((1-bounce)*this.facing, 1+bounce);
 
 
-			const has_ground = this.checkForCollision(_x,_y+hor_speed);
+			const has_ground = this.checkForCollision(_x,_y+hor_speed,"solid");
 
 			let _hsp = _move_hor*hor_speed;
 			
@@ -623,22 +615,21 @@
 			if(has_ground && _up){
 				this.vsp = -jump_speed;
 			} else if(has_ground && isHover(has_ground.element)){
-				console.log(isHover(has_ground.element));
 				this.vsp = -jump_speed*2;
 			}
 
-			if(!this.checkForCollision(_x+_hsp,_y)){
+			if(!this.checkForCollision(_x+_hsp,_y,"solid")){
 				_x += _hsp;
 			} else {
-				while(!this.checkForCollision(_x+Math.sign(_hsp),_y)){
+				while(!this.checkForCollision(_x+Math.sign(_hsp),_y,"solid")){
 					_x += Math.sign(_hsp);
 				}
 			}
 
-			if(!this.checkForCollision(_x,_y+ this.vsp)){
+			if(!this.checkForCollision(_x,_y+ this.vsp,"solid")){
 				_y += this.vsp;
 			} else {
-				while(!this.checkForCollision(_x,_y+Math.sign(this.vsp))){
+				while(!this.checkForCollision(_x,_y+Math.sign(this.vsp),"solid")){
 					_y += Math.sign(this.vsp);
 				}
 				this.vsp = 0;
@@ -658,34 +649,47 @@
 			this.setPosition(_x, _y);
 		}
 	};
-
-	var player = null;
-	const colliders = [];
-
-	if(!isMobile()) window.onload=function(){
-
+	
+	game_object_map["solid"] = [];
+	
+	function runGamePC(){
+		
 		const grid_items = document.getElementsByClassName("grid-item");
 
 		for(let i = 0; i < grid_items.length; i++){
-			colliders.push(new Collider(grid_items[i]));
+			let _collider = new Collider(grid_items[i]);
+			game_object_map["solid"].push(new Collider(grid_items[i]));
 		}
 
-		const input = new InputHandler();
+		const input = new PCInputHandler();
 
-		player = new Player(input,colliders);
+		new Star(100,100);
+
+		new Player(input);
 
 		let previousTimeStamp = 0;
 
 		function step(timeStamp){
 			const elapsed = (timeStamp - previousTimeStamp)/1000*60;
 			
-			player.update(elapsed);
+			game_object_map["Player"].forEach((player) => {
+				player.update(elapsed);
+			});
 			
 			previousTimeStamp = timeStamp;
 			window.requestAnimationFrame(step);
 		}
 		
 		window.requestAnimationFrame(step);
+	}
+
+	window.onload=function(){
+		loadGameData().then(() => {
+			if(isMobile())
+				"do nothing";
+			else	
+				runGamePC();
+		});
 	}
 
 </script>

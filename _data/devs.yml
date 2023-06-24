@@ -1,0 +1,35 @@
+# roles
+
+dev:
+  title: Developer
+
+cover-art:
+  title: Cover Art
+
+co:
+  title: Co-Developer
+
+music:
+  title: Music
+
+# people
+
+summerlass:
+  name: Summerlass
+  youtube: 
+
+jamie:
+  name: Jamie Rowan
+  twitter: jamierowan_
+
+rowan:
+  name: Rowan ( Rowan Douglas )
+  twitter: rowanfuture
+
+astro:
+  name: Astro
+  twitter: Astroidtbh
+
+rj:
+  name: Realjuice
+  twitter: reeljoos

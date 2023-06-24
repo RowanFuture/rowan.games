@@ -30,6 +30,7 @@ collections:
     output: true
     permalink: /:collection/:name/
     order:
+      - Untitled Driving Game.md
       - Starline Horizon.md
       - Witchie.md
       - Sleef 2.md

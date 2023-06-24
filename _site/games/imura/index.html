@@ -71,17 +71,45 @@
 	<body>
 		<div class="project-container">
 			
-
+	
+		<img class="game-title" src="/assets/img/imuralogo.png" alt="Imura">
 	
 
-	
-	
-	<div class="game-title">
-		
-			Imura
-		
+
+
+	<div class="game-container">
+		<iframe scrolling="no" src="/assets/html5_exports/SLEEF2" frameborder="0" width="768" height="768">
+			<p>Sorry, your browser does not support this game</p>
+		</iframe>
+		<button class="stop_iframe"></button>
 	</div>
+	
+	<script>
+		const player = document.querySelectorAll('iframe')
+		const close = document.querySelector('.stop_iframe')
 
+		var is_playing = false;
+
+		player.forEach(i => {
+			i.iframe_source = i.src;
+		});
+
+		pause_play = function(){
+			is_playing = !is_playing;
+			close.innerHTML = is_playing ? "STOP" : "PLAY";
+			player.forEach(i => {
+				if(is_playing){
+					i.src = i.iframe_source;
+				} else {
+					i.src = "";
+				}
+			});
+		}
+
+		pause_play();
+
+		close.addEventListener('click', pause_play);	
+	</script>
 
 
 
@@ -104,7 +132,32 @@
 
 </div>
 
+<br>
 
+<div class="roles">
+	<table class="roletable">
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Music</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/' target="_blank">
+							<div class="person tooltip">
+								Summerlass -
+								<span class="tooltiptext">
+									@
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+	</table>
+</div>
 		</div>
 	</body>
 </html>

@@ -59,10 +59,10 @@
 <div style="display:flex; width:fit-content; margin:auto;">
 
 	{% if page.steam_page != null %}
-		<a href="{{ page.steam_page }}"> Steam </a>	
+		<a target="_blank" href="{{ page.steam_page }}"> Steam </a>	
 	{% endif %}
 	{% if page.itch_page != null %}
-		<a href="{{ page.itch_page }}"> itch.io </a>	
+		<a target="_blank"  href="{{ page.itch_page }}"> itch.io </a>	
 	{% endif %}
 
 </div>
@@ -71,10 +71,29 @@
 	{{ include.data }}
 </div>
 
-{% if page.with_help_from != null %}
-	<div id="with-help-from">
-		with help from:
-		<br>
-		{{ page.with_help_from }}
-	</div>
-{% endif %}
+<br>
+
+<div class="roles">
+	<table class="roletable">
+		{% for role in page['roles'] %}
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>{{ site.data.devs[role["type"]]["title"] }}</p>
+				</td>
+				<td>
+					{% for val in role["people"] %}
+						{% assign person = site.data.devs[val] %}
+						<a href='https://twitter.com/{{person.twitter}}' target="_blank">
+							<div class="person tooltip">
+								{{ person.name }} -
+								<span class="tooltiptext">
+									@{{person.twitter}}
+								</span>
+							</div>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
