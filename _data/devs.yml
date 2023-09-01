@@ -6,6 +6,12 @@ dev:
 cover-art:
   title: Cover Art
 
+art:
+  title: Art
+
+programming:
+  title: Programming
+
 co:
   title: Co-Developer
 
@@ -13,6 +19,26 @@ music:
   title: Music
 
 # people
+
+Muoi:
+  name: Muoi
+  twitter: muoi_art
+
+Dev_Dwarf:
+  name: Dev_Dwarf
+  twitter: dev_dwarf
+
+TinyBox:
+  name: TinyBox
+  twitter: TinyBox11
+
+Alphons6:
+  name: Alphons6
+  twitter: Alphons63
+
+ConnorGrail:
+  name: ConnorGrail
+  twitter: ConnorGrail
 
 summerlass:
   name: Summerlass
