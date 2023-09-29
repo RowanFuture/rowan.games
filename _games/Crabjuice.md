@@ -16,5 +16,5 @@ roles: [
 ]
 ---
 
-A gamejam game,
-Made for GMTK 2023 in <48 hours.
+Made for GMTK 2023 in < 48 hours.
+out of 7000~ games, 1st place when ranked by fun!
