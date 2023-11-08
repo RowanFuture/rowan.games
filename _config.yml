@@ -26,6 +26,8 @@ collections:
   games:
     output: true
     permalink: /:collection/:name/
+    order:
+      - Snekmek.md
   projects:
     output: true
     permalink: /:collection/:name/

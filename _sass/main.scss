@@ -173,10 +173,11 @@ iframe {
     height: 20vh;
 	font-size: 5vh;
 	color:white;
-	filter: drop-shadow(5px 5px 10rem white) drop-shadow(0 0 2px white);
+	//filter: drop-shadow(5px 5px 10rem white) drop-shadow(0 0 2px white);
+	filter: drop-shadow(5px 5px 2rem rgba(1,1,1,.5)) drop-shadow(0 0 2px white)
 }
 .game-title.invert {
-	filter: invert(1) drop-shadow(5px 5px 10rem white) drop-shadow(0 0 2px white);
+	filter: invert(1) drop-shadow(5px 5px 2rem rgba(1,1,1,.5)) drop-shadow(0 0 2px white);
 }
 .development_status {
 	width:fit-content;

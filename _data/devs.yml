@@ -1,5 +1,14 @@
 # roles
 
+design:
+  title: Design
+
+codeanddesign:
+  title: Code & Design
+
+artanddesign:
+  title: Art & Design
+
 dev:
   title: Developer
 
