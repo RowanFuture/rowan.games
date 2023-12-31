@@ -27,12 +27,12 @@ collections:
     output: true
     permalink: /:collection/:name/
     order:
-      - Snekmek.md
+      - Slippery Delivery.md
   projects:
     output: true
     permalink: /:collection/:name/
     order:
-      - Untitled Driving Game.md
+      - Driftwave.md
       - Starline Horizon.md
       - Witchie.md
       - Sleef 2.md

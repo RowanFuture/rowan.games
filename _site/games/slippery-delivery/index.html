@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+				Slippery delivery - 
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+	</head>
+<div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>
+
+
+    
+        
+    
+
+
+    
+
+
+    
+
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<div class="project-container">
+			
+	
+		<img class="game-title" src="/assets/img/slipperydelivery-logo.png" alt="Slippery delivery">
+	
+
+
+
+	<div class="game-container">
+		<iframe scrolling="no" src="/assets/html5_exports/slipperydeliveryitchversion" frameborder="0" width="768" height="768">
+			<p>Sorry, your browser does not support this game</p>
+		</iframe>
+		<button class="stop_iframe"></button>
+	</div>
+	
+	<script>
+		const player = document.querySelectorAll('iframe')
+		const close = document.querySelector('.stop_iframe')
+
+		var is_playing = false;
+
+		player.forEach(i => {
+			i.iframe_source = i.src;
+		});
+
+		pause_play = function(){
+			is_playing = !is_playing;
+			close.innerHTML = is_playing ? "STOP" : "PLAY";
+			player.forEach(i => {
+				if(is_playing){
+					i.src = i.iframe_source;
+				} else {
+					i.src = "";
+				}
+			});
+		}
+
+		pause_play();
+
+		close.addEventListener('click', pause_play);	
+	</script>
+
+
+
+<div class="development_status 
+	
+			status_green">
+			COMPLETE
+	
+</div>
+
+<div style="display:flex; width:fit-content; margin:auto;">
+
+	
+	
+
+</div>
+
+<div id="project-content">
+	<p>Keys:</p>
+
+<p>A/D or LEFT/RIGHT to flop</p>
+
+<p>Winner of the Cafe Dot GameJam</p>
+
+</div>
+
+<br>
+
+<div class="roles">
+	<table class="roletable">
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Code & Design</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/rowanfuture' target="_blank">
+							<div class="person tooltip">
+								Rowan ( Rowan Douglas ) -
+								<span class="tooltiptext">
+									@rowanfuture
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Art & Design</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/Alphons63' target="_blank">
+							<div class="person tooltip">
+								Alphons6 -
+								<span class="tooltiptext">
+									@Alphons63
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Cover Art</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/Astroidtbh' target="_blank">
+							<div class="person tooltip">
+								Astro -
+								<span class="tooltiptext">
+									@Astroidtbh
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Music</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/ConnorGrail' target="_blank">
+							<div class="person tooltip">
+								ConnorGrail -
+								<span class="tooltiptext">
+									@ConnorGrail
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+	</table>
+</div>
+		</div>
+	</body>
+</html>
