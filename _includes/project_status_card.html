@@ -1,5 +1,8 @@
 <div class="development_status 
 	{% case page.development_status %}
+		{% when "soft_released" %}
+			status_green">
+			SOFT RELEASED
 		{% when "cancelled" %}
 			status_red">
 			CANCELLED

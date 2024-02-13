@@ -3,6 +3,7 @@ layout: project
 development_status: "complete"
 steam_page: 
 itch_page:
+ng_page: 'https://www.newgrounds.com/portal/view/912275'
 card_img: 'devilhearts-bg.png'
 logo_img: 'devilheartslogo.png'
 html5_export: "CharmGame"
