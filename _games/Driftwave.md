@@ -6,6 +6,7 @@ itch_page:
 ng_page:
 html5_export:
 logo_img: 'driftwave-logo.png'
+card_img: "dw-bg.png"
 game_display_width: 800
 game_display_height: 600
 roles: [
