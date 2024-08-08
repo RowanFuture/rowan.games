@@ -5,7 +5,7 @@ steam_page:
 itch_page:
 card_img: 'slipperydeliverybgalternative.png'
 logo_img: 'slipperydelivery-logo.png'
-html5_export: "slipperydeliveryitchversion"
+# html5_export: "slipperydeliveryitchversion"
 game_display_width: 768
 game_display_height: 768
 roles: [
@@ -16,9 +16,10 @@ roles: [
 ]
 ---
 
-Keys: 
+Play here:
 
-A/D or LEFT/RIGHT to flop
-
+<a href="https://www.coolmathgames.com/0-slippery-delivery" target="_blank">
+	![Coolmath Games](/assets/img/cmg-logo.png)
+</a>
 
 Winner of the Cafe Dot GameJam

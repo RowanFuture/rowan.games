@@ -77,41 +77,6 @@
 
 
 
-	<div class="game-container">
-		<iframe scrolling="no" src="/assets/html5_exports/slipperydeliveryitchversion" frameborder="0" width="768" height="768">
-			<p>Sorry, your browser does not support this game</p>
-		</iframe>
-		<button class="stop_iframe"></button>
-	</div>
-	
-	<script>
-		const player = document.querySelectorAll('iframe')
-		const close = document.querySelector('.stop_iframe')
-
-		var is_playing = false;
-
-		player.forEach(i => {
-			i.iframe_source = i.src;
-		});
-
-		pause_play = function(){
-			is_playing = !is_playing;
-			close.innerHTML = is_playing ? "STOP" : "PLAY";
-			player.forEach(i => {
-				if(is_playing){
-					i.src = i.iframe_source;
-				} else {
-					i.src = "";
-				}
-			});
-		}
-
-		pause_play();
-
-		close.addEventListener('click', pause_play);	
-	</script>
-
-
 
 <div class="development_status 
 	
@@ -129,9 +94,11 @@
 </div>
 
 <div id="project-content">
-	<p>Keys:</p>
+	<p>Play here:</p>
 
-<p>A/D or LEFT/RIGHT to flop</p>
+<p><a href="https://www.coolmathgames.com/0-slippery-delivery" target="_blank">
+	<img src="/assets/img/cmg-logo.png" alt="Coolmath Games" />
+</a></p>
 
 <p>Winner of the Cafe Dot GameJam</p>
 

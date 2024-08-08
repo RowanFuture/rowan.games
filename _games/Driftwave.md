@@ -1,6 +1,6 @@
 ---
 layout: project
-development_status: "soft_released"
+development_status: "complete"
 steam_page: 
 itch_page:
 ng_page:

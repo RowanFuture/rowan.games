@@ -27,12 +27,15 @@ collections:
     output: true
     permalink: /:collection/:name/
     order:
+      - Bonnie Fell.md
+      - Driftwave.md
       - Slippery Delivery.md
+      - Starline Horizon.md
+      - Crabjuice.md
+      - Devil Hearts.md
+      - Snekmek.md
   projects:
     output: true
     permalink: /:collection/:name/
     order:
-      - Driftwave.md
-      - Starline Horizon.md
-      - Witchie.md
       - Sleef 2.md

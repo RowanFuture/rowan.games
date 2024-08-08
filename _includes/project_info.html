@@ -59,7 +59,26 @@
 <div style="display:flex; width:fit-content; margin:auto;">
 
 	{% if page.steam_page != null %}
-		<a target="_blank" href="{{ page.steam_page }}"> Steam </a>	
+
+		{% assign parts = page.steam_page | split: "/" %}
+		{% assign app_id = "" %}
+		{% assign found = false %}
+
+		{% for part in parts %}
+			{% assign number = part | plus: 0 %}
+			{% if found == false and number > 100 %}
+				{% assign app_id = part %}
+				{% assign found = true %}
+			{% endif %}
+		{% endfor %}
+
+
+		{% assign full_url = "https://store.steampowered.com/app/" | append: app_id %}
+		{% assign full_url_widget = "https://store.steampowered.com/widget/" | append: app_id %}
+		<a target="_blank" href="{{ full_url }}" >
+			<iframe src="{{ full_url_widget }}" frameborder="0" width="646" height="190"></iframe>
+		
+		</a>	
 	{% endif %}
 	{% if page.itch_page != null %}
 		<a target="_blank"  href="{{ page.itch_page }}"> itch.io </a>	
