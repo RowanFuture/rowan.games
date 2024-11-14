@@ -11,9 +11,9 @@ title: ""
 
 	{% include project_card_section.html data = site.games %}
 	
-	<p class="section-title">PROJECTS</p>
+	<!-- <p class="section-title">PROJECTS</p> -->
 
-	{% include project_card_section.html data = site.projects %}
+	<!-- {% include project_card_section.html data = site.projects %} -->
 	
 </div>
 

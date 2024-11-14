@@ -27,7 +27,30 @@ co:
 music:
   title: Music
 
+sound:
+  title: Sound
+
 # people
+
+tetra:
+  name: Tetra
+  twitter: Tetraminose
+
+alvesito:
+  name: alvesito
+  twitter: alsitocpp
+
+sunnexo:
+  name: Sunexxo
+  twitter: sunnexomusic
+
+robotmeadows:
+  name: robotmeadows
+  twitter: robotmeadow
+
+batfeula:
+  name: Batfeula
+  twitter: batfeula
 
 Muoi:
   name: Muoi
