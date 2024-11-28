@@ -23,6 +23,8 @@ blue-energy-images:
 permalink: pretty
 
 collections:
+  pages:
+    output: true
   games:
     output: true
     permalink: /:collection/:name/
