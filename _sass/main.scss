@@ -13,6 +13,26 @@ $green: #35bd91;
 $blueGreen: #63d0c3;
 $faintBlue: #8ccde7;
 
+#tutorial hr {
+margin:4rem;
+opacity:.5;
+}
+#tutorial img {
+max-height:50vh;
+}
+#tutorial ol {
+background-color: #161525;
+border-radius:1rem;
+}
+#tutorial li {
+padding-top: .5rem;
+padding-bottom:.5rem;
+}
+code {
+background: black;
+font-size:1rem;
+}
+
 a {
 	color: $lightBlue;
 	text-decoration: overline;

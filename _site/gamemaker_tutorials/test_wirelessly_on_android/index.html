@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+				Test_wirelessly_on_android - 
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css">
+	</head>
+<div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>
+
+
+    
+        
+    
+
+
+    
+
+
+    
+
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<div id="tutorial" style="max-width: 1080px; margin: auto; ">
+			<h1 id="gamemaker-mini-tutorial-test-on-android-wirelessly">GameMaker Mini Tutorial: Test on Android Wirelessly</h1>
+
+<p>If you’re developing Android games with GameMaker and want to test them on your device without the hassle of cables, you can set up wireless debugging using ADB (Android Debug Bridge).
+This guide walks you through the steps to configure your PC and Android device for wireless debugging and connect GameMaker to your phone.</p>
+
+<hr />
+
+<h3 id="-step-1-locate-adb-on-your-computer">✅ <strong>Step 1: Locate ADB on Your Computer</strong></h3>
+<p>ADB is part of the Android SDK platform tools. To find it:</p>
+<ol>
+  <li>Open File Explorer on your PC.</li>
+  <li>Navigate to:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[Your android SDK location]\Android\Sdk\platform-tools
+</code></pre></div>    </div>
+    <p><img src="../../assets/img/tutorial1/adb_location.png" alt="image" /></p>
+  </li>
+  <li>Inside this folder, you’ll see an executable called <code class="language-plaintext highlighter-rouge">adb.exe</code>. This is the tool you’ll use to connect wirelessly.</li>
+</ol>
+
+<hr />
+
+<h3 id="-step-2-enable-wireless-debugging-on-your-android-device">📡 <strong>Step 2: Enable Wireless Debugging on Your Android Device</strong></h3>
+<p>You’ll need to turn on wireless debugging from your Android’s developer settings:</p>
+<ol>
+  <li>Go to <strong>Settings</strong> on your phone.</li>
+  <li>Tap <strong>About Phone</strong> and find the <strong>Build Number</strong>. Tap it 7 times to enable developer mode.</li>
+  <li>Go back to <strong>Settings</strong> and open <strong>Developer Options</strong>.</li>
+  <li>Scroll down search for <strong>USB Debugging</strong> - right below it, enable <strong>Wireless Debugging</strong>.<br />
+<img src="../../assets/img/tutorial1/developer_settings.jpg" alt="image" /></li>
+  <li>Tap the <strong>Wireless Debugging</strong> text to open the settings page.</li>
+  <li>Select <strong>Pair Device with Pairing Code</strong>.<br />
+<img src="../../assets/img/tutorial1/wireless_debugging.jpg" alt="image" />
+—</li>
+</ol>
+
+<h3 id="-step-3-pair-your-pc-to-your-android-device">📡 <strong>Step 3: Pair Your PC to Your Android Device</strong></h3>
+<p>Now that wireless debugging is on, you’ll need to pair your device with your PC.</p>
+
+<ol>
+  <li>Open <strong>Command Prompt</strong> on your PC.</li>
+  <li>Navigate to the platform tools folder where <code class="language-plaintext highlighter-rouge">adb.exe</code> is located:</li>
+  <li>To pair your phone, run:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb pair [IP address]:[Port]
+</code></pre></div>    </div>
+    <p>👉 The IP address and port are displayed on your phone’s <strong>Wireless Debugging</strong> settings page.<br />
+<img src="../../assets/img/tutorial1/ip_addy.jpg" alt="image" /></p>
+  </li>
+  <li>Enter the pairing code shown on your phone when prompted.<br />
+<img src="../../assets/img/tutorial1/enter_pairing_code.png" alt="image" /></li>
+  <li>Once paired, your phone will confirm the connection.</li>
+</ol>
+
+<hr />
+
+<h3 id="-step-4-connect-your-device-wirelessly">🔗 <strong>Step 4: Connect Your Device Wirelessly</strong></h3>
+<p>After pairing, you’ll need to connect your device for debugging:</p>
+
+<ol>
+  <li>In the same Command Prompt window, type:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>adb connect [IP address]:[Port]
+</code></pre></div>    </div>
+  </li>
+  <li>It should now say <strong>connected</strong>.<br />
+<img src="../../assets/img/tutorial1/adb_connect_command.png" alt="image" /></li>
+</ol>
+
+<hr />
+
+<h3 id="-step-5-detect-your-device-in-gamemaker">🎮 <strong>Step 5: Detect Your Device in GameMaker</strong></h3>
+<p>Now that your device is connected:</p>
+
+<ol>
+  <li>Open <strong>GameMaker</strong>.</li>
+  <li>Go to <strong>Targets</strong> from the top toolbar.</li>
+  <li>Select <strong>Device Editor</strong>.<br />
+<img src="../../assets/img/tutorial1/device_editor.png" alt="image" /></li>
+  <li>Click <strong>Detect Devices</strong>.</li>
+  <li>Your phone should appear as an available target for testing.</li>
+</ol>
+
+<hr />
+
+<h3 id="️-troubleshooting-connection-issues">⚠️ <strong>Troubleshooting: Connection Issues</strong></h3>
+<p>Wireless debugging can sometimes disconnect randomly.</p>
+
+<p>If this happens simply type <code class="language-plaintext highlighter-rouge">adb connect [IP address]:[Port]</code>
+again in Command Prompt to reconnect.</p>
+
+<p>That’s it! Now you can build and run your GameMaker projects wirelessly on your Android device. 🎉</p>
+
+
+
+<br>
+
+<div class="roles">
+	<table class="roletable">
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Article By</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/rowanfuture' target="_blank">
+							<div class="person tooltip">
+								Rowan -
+								<span class="tooltiptext">
+									@rowanfuture
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+	</table>
+</div>
+
+<br>
+<br>
+<br>
+
+		</div>
+	</body>
+</html>

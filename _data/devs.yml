@@ -15,6 +15,9 @@ dev:
 cover-art:
   title: Cover Art
 
+article:
+  title: Article By
+
 art:
   title: Art
 
@@ -81,7 +84,7 @@ jamie:
   twitter: jamierowan_
 
 rowan:
-  name: Rowan ( Rowan Douglas )
+  name: Rowan
   twitter: rowanfuture
 
 astro:

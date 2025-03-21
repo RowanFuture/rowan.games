@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+#tutorial hr { margin: 4rem; opacity: .5; }
+
+#tutorial img { max-height: 50vh; }
+
+#tutorial ol { background-color: #161525; border-radius: 1rem; }
+
+#tutorial li { padding-top: .5rem; padding-bottom: .5rem; }
+
+code { background: black; font-size: 1rem; }
+
 a { color: #2096dd; text-decoration: overline; transition: all .2s; }
 
 a:visited { color: #f897ba; }

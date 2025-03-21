@@ -23,6 +23,8 @@ blue-energy-images:
 permalink: pretty
 
 collections:
+  gamemaker_tutorials:
+    output: true
   pages:
     output: true
   games:

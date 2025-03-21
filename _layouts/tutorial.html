@@ -1,0 +1,41 @@
+{% include header.html %}
+{% include image_logo.html %}
+{% include navigation.html %}
+	<body>
+		<div id="tutorial" style="max-width: 1080px; margin: auto; ">
+			{{ content }}
+
+<br>
+
+<div class="roles">
+	<table class="roletable">
+		{% for role in page['roles'] %}
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>{{ site.data.devs[role["type"]]["title"] }}</p>
+				</td>
+				<td>
+					{% for val in role["people"] %}
+						{% assign person = site.data.devs[val] %}
+						<a href='https://twitter.com/{{person.twitter}}' target="_blank">
+							<div class="person tooltip">
+								{{ person.name }} -
+								<span class="tooltiptext">
+									@{{person.twitter}}
+								</span>
+							</div>
+						</a>
+					{% endfor %}
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+</div>
+
+<br>
+<br>
+<br>
+
+		</div>
+	</body>
+{% include footer.html %}
