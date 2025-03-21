@@ -23,8 +23,6 @@ ADB is part of the Android SDK platform tools. To find it:
 
 3. Inside this folder, you’ll see an executable called `adb.exe`. This is the tool you’ll use to connect wirelessly.  
 
-
-
 ---
 
 ### 📡 **Step 2: Enable Wireless Debugging on Your Android Device**  
@@ -37,6 +35,7 @@ You’ll need to turn on wireless debugging from your Android’s developer sett
 6. Tap the **Wireless Debugging** text to open the settings page.  
 7. Select **Pair Device with Pairing Code**.  
 ![image](../../assets/img/tutorial1/wireless_debugging.jpg)
+
 ---
 
 ### 📡 **Step 3: Pair Your PC to Your Android Device**  
