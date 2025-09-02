@@ -4,8 +4,8 @@ development_status: "in_development"
 steam_page:  https://store.steampowered.com/app/1609460/Bonnie_Fell/
 itch_page: 
 html5_export:
-card_img: 'bonniefell-bg.png'
-logo_img: 'bonniefell-logo.png'
+card_img: 'bonnie-fell-cover.png'
+logo_img: 'bonnie-fell-logo.png'
 ---
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">A wee witch simulator where you must work hard to get your small potion business off the ground! Farm strange plants, concoct powerful potions and sell them to stingy customers.<br><br>Bonnie Fell<br><br>The Steam page is up now!<br>Please Wishlist! <a href="https://t.co/noKEcGOYpc">pic.twitter.com/noKEcGOYpc</a></p>&mdash; Rowan (Wishlist Bonnie Fell!) (@RowanFuture) <a href="https://twitter.com/RowanFuture/status/1816604867487551642?ref_src=twsrc%5Etfw">July 25, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

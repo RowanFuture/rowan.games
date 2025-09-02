@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+		<title>
+			
+				Shaki shaki island - 
+			
+			Rowan Future
+		</title>
+		<link rel="stylesheet" href="/assets/css/main.css?cachebust=1">
+	</head>
+<a href="/"> <div class="logo-container">
+	<img id="logo-image" src="/assets/img/main-logo.svg" alt="Rowan Future">
+	<!-- <div >Rowan Future</div> -->
+</div>	<a>
+
+
+    
+        
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+<nav>
+    <ul class="nav-bar">
+    
+        
+            
+        
+        <li class="current">
+			
+			
+			
+				<a  href="/"><img class="nav-logo" src="/assets/img/rowan-small.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://twitter.com/RowanFuture"><img class="nav-logo" src="/assets/img/twitter-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://discord.com/invite/rf"><img class="nav-logo" src="/assets/img/discord-logo.svg" alt=""></a>
+			
+		</li>
+    
+        
+            <!-- We have to declare it 'null' to ensure it doesn't propagate. -->
+            
+        
+        <li>
+			
+			
+			
+				<a target="_blank" href="https://rowanfuture.itch.io/"><img class="nav-logo" src="/assets/img/itch.svg" alt=""></a>
+			
+		</li>
+    
+    </ul>
+</nav>
+	<body>
+		<div class="project-container">
+			
+	
+		<img class="game-title" src="/assets/img/shakishakilogo.png" alt="Shaki shaki island">
+	
+
+
+
+	<div class="game-container">
+		<iframe scrolling="no" src="/assets/html5_exports/GameOff2024" frameborder="0" width="768" height="576">
+			<p>Sorry, your browser does not support this game</p>
+		</iframe>
+		<button class="stop_iframe"></button>
+	</div>
+	
+	<script>
+		const player = document.querySelectorAll('iframe')
+		const close = document.querySelector('.stop_iframe')
+
+		var is_playing = false;
+
+		player.forEach(i => {
+			i.iframe_source = i.src;
+		});
+
+		pause_play = function(){
+			is_playing = !is_playing;
+			close.innerHTML = is_playing ? "STOP" : "PLAY";
+			player.forEach(i => {
+				if(is_playing){
+					i.src = i.iframe_source;
+				} else {
+					i.src = "";
+				}
+			});
+		}
+
+		pause_play();
+
+		close.addEventListener('click', pause_play);	
+	</script>
+
+
+
+<div class="development_status 
+	
+			status_green">
+			COMPLETE
+	
+</div>
+
+<div style="display:flex; width:fit-content; margin:auto;">
+
+	
+	
+	
+
+</div>
+
+<div id="project-content">
+	<p>Notepad Controls</p>
+
+<p>LEFT CLICK - Draw</p>
+
+<p>RIGHT CLICK - Erase</p>
+
+<p>–</p>
+
+<p>Game Off 2024 gamejam</p>
+
+<p>Winner in the innovation category</p>
+
+</div>
+
+<br>
+
+<div class="roles">
+	<table class="roletable">
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Code & Design</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/rowanfuture' target="_blank">
+							<div class="person tooltip">
+								Rowan -
+								<span class="tooltiptext">
+									@rowanfuture
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Art</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/Alphons63' target="_blank">
+							<div class="person tooltip">
+								Alphons6 -
+								<span class="tooltiptext">
+									@Alphons63
+								</span>
+							</div>
+						</a>
+					
+						
+						<a href='https://twitter.com/Tetraminose' target="_blank">
+							<div class="person tooltip">
+								Tetra -
+								<span class="tooltiptext">
+									@Tetraminose
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Cover Art</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/madebyabra' target="_blank">
+							<div class="person tooltip">
+								madebyabra -
+								<span class="tooltiptext">
+									@madebyabra
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+			<tr>
+				<td class="role" style="padding-right:1rem;">
+					<p>Music</p>
+				</td>
+				<td>
+					
+						
+						<a href='https://twitter.com/robotmeadow' target="_blank">
+							<div class="person tooltip">
+								robotmeadows -
+								<span class="tooltiptext">
+									@robotmeadow
+								</span>
+							</div>
+						</a>
+					
+				</td>
+			</tr>
+		
+	</table>
+</div>
+		</div>
+	</body>
+</html>

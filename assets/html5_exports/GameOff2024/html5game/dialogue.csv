@@ -1,0 +1,78 @@
+sequence name,character,text
+Fisherman Intro,-,
+,Player,Hi!
+,Fisherman,Have you seen any fish?
+,Player,Maybe... Why?
+,Fisherman,I keep seeing fish printing videos on PikPok
+,Player,Oh! Me too!
+,Fisherman,Want to try it?...
+Fisherman Repeat,-,
+,Fisherman,Wouldn't it be great if the wall was filled with fish?
+Fisherman Complete,-,
+,Fisherman,Woah! The wall looks so complete now!
+,Fisherman,Just one spot missing...
+,Fisherman,There. Much Better.
+Fisherman complete repeat,-,
+,Fisherman,Nice photo I put up right? I'll take you boating one day
+Granny Intro,-,
+,Granny,What are you doing here young one?
+,Player,I'm on a school trip
+,Granny,How lovely. As you can see - I'm guarding this door
+,Player,Will you let me go through?
+,Granny,Oh. I suppose so!    But I can't let you through so simply
+,Granny,How about this
+,Granny,Draw me 2 flowers and I'll let you through
+,Player,Oh... Okay then
+Granny Repeat,-,
+,Granny,Keep it a secret for me
+,Granny,I don't actually need drawings of flowers...
+,Player,What...?
+,Granny,Can you draw them for me anyway?
+,Player,Sure...
+Granny Complete,-,
+,Player,That's at least 2 flowers for you!
+,Granny,Well done. Go on through now!
+,Player,Okay!
+Granny complete repeat,-,
+,Granny,Missed me did you dear?
+Artist Intro,-,
+,Artist,Let your creativity flow!!!!
+,Artist,Be INSPIRED!!!,
+,Artist,Draw for me... The landmarks of the island!!!
+,Player,O-Okay!!!
+Artist Repeat,-,
+,Artist,If you're lost there are signs!!!
+,Artist,Don't get lost though!!!
+Artist Complete,-,
+,Artist,WOW! What beautiful drawings!!!
+Artist complete repeat,-,
+,Artist,Here's a SECRET!!! Draw the letter A!!!
+Granny 2 Intro,-,
+,Granny,I'm feeling rather hungry dearie.
+,Granny,Do you have a snack perhaps?
+,Player,No sorry...
+Granny 2 Repeat,-,
+,Granny,Even an apple would do!
+Granny 2 Complete,-,
+,Granny,Great!
+,Granny,I'm not suppposed to do this...
+,Granny,But as a reward I'll let you through!
+Granny 2 complete repeat,-,
+,Granny,Keep it a secret for me...
+,Granny,I can let anyone through the gate...
+Creature Intro,-,
+,Creature,Hello
+,Player,Hi...
+,Creature,Sorry there's not much else here
+,Player,Oh no... It's okay
+,Creature,I heard someone is building a hotel here soon
+,Creature,Then the island will be bustling again
+,Player,That's nice...
+,Creature,I'll be moving away though
+,Player,Oh I see
+,Creature,It's okay. Times change
+,Creature,Anyway thanks for visiting
+,Creature,Shaki Shaki Island will always be here for you to visit again
+Creature Repeat,-,
+,Creature,Go on your way now child
+,Player,O-okay...

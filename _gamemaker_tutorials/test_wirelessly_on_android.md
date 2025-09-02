@@ -35,6 +35,7 @@ You’ll need to turn on wireless debugging from your Android’s developer sett
 6. Tap the **Wireless Debugging** text to open the settings page.  
 7. Select **Pair Device with Pairing Code**.  
 ![image](../../assets/img/tutorial1/wireless_debugging.jpg)
+8. We'll be using the pairing code in the next step! (so keep that page open on your phone)
 
 ---
 

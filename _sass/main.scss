@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
 
-$backgroundColor: #000;
+$backgroundColor: #080933;
 $bodyColor: white;
 $bodyFont: 'Poppins',Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 $darkBlue: #100354;
@@ -12,6 +12,10 @@ $lightGreen: #50d86b;
 $green: #35bd91;
 $blueGreen: #63d0c3;
 $faintBlue: #8ccde7;
+
+.video-container {
+	background-color: black;
+}
 
 #tutorial hr {
 margin:4rem;
@@ -74,16 +78,22 @@ html {
 	font-family: $bodyFont;
 }
 
-.nav-bar {
-	background-color: $darkBlue;
+.logo-container {
+	background: black;
 }
 
-.nav-bar li.current:before {
-    content: ">";
-	font-size: 6vh;
-	transform: translate(1.5vh, 3vh) rotateZ(-90deg);
-	position: absolute;
+.nav-bar {
+	background:  linear-gradient(
+		180deg, black, transparent);
+	// background-color: $darkBlue;
 }
+
+// .nav-bar li.current:before {
+//     content: ">";
+// 	font-size: 6vh;
+// 	transform: translate(1.5vh, 3vh) rotateZ(-90deg);
+// 	position: absolute;
+//}
 
 .video-container {
 	text-align: center;
@@ -133,7 +143,7 @@ html {
 	to {transform: scale(1); opacity: 1; }
 }
 @keyframes game-card-load {
-	from {transform:   rotateX(30deg) rotateY(30deg); opacity: 0; }
+	from {transform:   rotateX(30deg) rotateY(30deg) scale(.6); opacity: 0; }
 	to { transform: rotateY(0deg); opacity: 1; }
 }
 .end-video-animation {
@@ -388,7 +398,7 @@ iframe {
 	transform: rotateX(0deg) rotateY(0deg);
 }
 .card-container:hover .gamecard {
-    transform: rotateX(20deg) rotateY(20deg);
+    transform: rotateX(20deg) rotateY(20deg)  scale(1) ;
 	filter: brightness(110%);
 }
 .gloss {
@@ -403,10 +413,10 @@ iframe {
     transform: translateY(-100%) translateX(60%);
 }
 .card-container:hover .gloss.g1 {
-    transform: translateY(0%) translateX(10%);
+    transform: translateY(0%) translateX(10%) ;
 } 
 .card-container:hover .gloss.g2 {
-    transform: translateY(-20%) translateX(-30%);
+    transform: translateY(-20%) translateX(-30%) ;
 } 
 .gloss.g2 {
     background: radial-gradient(circle farthest-corner at 50% 50%, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 40%);

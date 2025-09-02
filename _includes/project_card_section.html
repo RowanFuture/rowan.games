@@ -1,5 +1,14 @@
+<div style="width:100%; margin:auto; max-width: 1200px;">
+
+		{% for project in include.data %}
+		<div style="display: inline-block;">
+			<div class="grid-item">
+				<a href="{{ project.url }}">{% include game_card.html data=project %}</a>
+			</div>
+		</div>
+		{% endfor %}
+	
+</div>
+
 <div class="grid-container">
-	{% for project in include.data %}
-		<div class="grid-item"><a href="{{ project.url }}">{% include game_card.html data=project %}</a></div>
-	{% endfor %}
 </div>

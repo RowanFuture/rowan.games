@@ -14,10 +14,3 @@ roles: [
 
 ]
 ---
-
-Keys: 
-
-A/D or LEFT/RIGHT to flop
-
-
-Winner of the Cafe Dot GameJam

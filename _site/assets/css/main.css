@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+.video-container { background-color: black; }
+
 #tutorial hr { margin: 4rem; opacity: .5; }
 
 #tutorial img { max-height: 50vh; }
@@ -17,15 +19,15 @@ a:hover { color: #ff7d1f; cursor: pointer; }
 
 button:hover { cursor: pointer; }
 
-body { background: #000; color: white; margin: 0; width: 100vw; }
+body { background: #080933; color: white; margin: 0; width: 100vw; }
 
 .section-title { font-weight: bold; font-size: 2rem; margin: auto; text-align: left; width: 60vw; max-width: 60vh; border-bottom: #100354 solid 0.5rem; }
 
 html { width: 100vw; margin: 0; overflow-x: hidden; font-family: "Poppins", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
 
-.nav-bar { background-color: #100354; }
+.logo-container { background: black; }
 
-.nav-bar li.current:before { content: ">"; font-size: 6vh; transform: translate(1.5vh, 3vh) rotateZ(-90deg); position: absolute; }
+.nav-bar { background: linear-gradient(180deg, black, transparent); }
 
 .video-container { text-align: center; margin: auto; width: 100vw; position: absolute; top: 0; }
 
@@ -49,7 +51,7 @@ html { width: 100vw; margin: 0; overflow-x: hidden; font-family: "Poppins", Helv
   to { transform: scale(1);
     opacity: 1; } }
 
-@keyframes game-card-load { from { transform: rotateX(30deg) rotateY(30deg);
+@keyframes game-card-load { from { transform: rotateX(30deg) rotateY(30deg) scale(0.6);
     opacity: 0; }
   to { transform: rotateY(0deg);
     opacity: 1; } }
@@ -134,7 +136,7 @@ iframe { overflow: hidden; }
 
 .gamecard { width: 100%; height: 100%; /* width:50%; */ /* max-width:50rem; */ /* height:100%; */ /* height: calc( 65vh - 2rem ); */ /* max-height:32rem; */ margin: 0; background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 1rem; position: relative; transition: transform .5s; box-shadow: inset 0px 0px 8px 1px white; overflow: hidden; border: 0; background-color: #1e1e1e; transform: rotateX(0deg) rotateY(0deg); }
 
-.card-container:hover .gamecard { transform: rotateX(20deg) rotateY(20deg); filter: brightness(110%); }
+.card-container:hover .gamecard { transform: rotateX(20deg) rotateY(20deg) scale(1); filter: brightness(110%); }
 
 .gloss { position: absolute; pointer-events: none; width: 70%; height: 70%; mix-blend-mode: overlay; opacity: 1; will-change: transform; transition: transform .5s; transform: translateY(-100%) translateX(60%); }
 

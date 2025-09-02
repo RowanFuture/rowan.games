@@ -7,7 +7,7 @@ title: ""
 
 <div class="landing-page">
 
-	<p class="section-title">GAMES</p>
+	<!-- <p class="section-title">GAMES</p> -->
 
 	{% include project_card_section.html data = site.games %}
 	
